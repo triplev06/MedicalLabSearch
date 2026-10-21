@@ -2666,3 +2666,48 @@ main:focus {
   line-height: 1.65;
   margin: 0 0 1.25rem;
 }
+
+.explore-fit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.explore-fit p {
+  flex: 1 1 18rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.fit-category {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin: 0.5rem 0;
+}
+.score-breakdown table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  margin: 1.25rem 0 0.75rem;
+}
+.score-breakdown th,
+.score-breakdown td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.65rem 0.4rem;
+  text-align: left;
+}
+.score-breakdown th {
+  font-weight: 600;
+}
+.score-breakdown td {
+  white-space: nowrap;
+}
+
+.criterion-anchor {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-top: 0.25rem;
+}

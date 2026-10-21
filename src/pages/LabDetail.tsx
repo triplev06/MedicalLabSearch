@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { ScoreBreakdown } from "../components/ScoreBreakdown";
 import {
   ArrowLeft,
   MapPin,
@@ -98,6 +99,7 @@ export function LabDetail() {
               official ranking.
             </p>
           </section>
+          <ScoreBreakdown labId={lab.id} />
           <section className="panel detail-section">
             <h2>Requirements & eligibility</h2>
             <ul>

@@ -22,7 +22,7 @@ describe("recommendation and combined filters", () => {
         states: ["MA", "WA"],
         institution: "Dana-Farber Cancer Institute",
         availability: "open",
-        minFit: 85,
+        minFit: 70,
       },
       [],
       new Date(2026, 9, 21),
@@ -33,7 +33,14 @@ describe("recommendation and combined filters", () => {
       { ...defaultFilters, states: ["TN"], minFit: 50 },
       [],
     );
-    expect(tennessee.some((l) => l.id === "mchaourab")).toBe(true);
+    expect(tennessee.some((l) => l.id === "mchaourab")).toBe(false);
+    expect(
+      selectLabs(
+        labs,
+        { ...defaultFilters, states: ["TN"], minFit: 0 },
+        [],
+      ).some((l) => l.id === "mchaourab"),
+    ).toBe(true);
     expect(tennessee.every((l) => l.state === "TN" && l.fit >= 50)).toBe(true);
   });
   it("keeps private tracking filters out of shareable URLs and rejects invalid ranges", () => {

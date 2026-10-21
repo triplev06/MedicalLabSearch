@@ -3,7 +3,7 @@ import { labs } from "../data/labs";
 
 describe("nationwide major-metro expansion", () => {
   it("adds another 100 entries with broad geographic coverage", () => {
-    expect(labs).toHaveLength(189);
+    expect(labs).toHaveLength(201);
     for (const state of ["CA", "NY", "MD", "NC", "GA", "MN", "MO", "CO", "FL"])
       expect(
         labs.some((l) => l.state === state),

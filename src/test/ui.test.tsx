@@ -14,6 +14,9 @@ import { db, defaultPreferences } from "../storage/db";
 import { exportBackup } from "../storage/backup";
 import { saveLab } from "../storage/tracking";
 import { labs } from "../data/labs";
+// Load the real lazy chart module during collection, so cold Vite transforms
+// do not consume the deadline-panel interaction test's assertion budget.
+import "../components/ProgressCharts";
 beforeEach(async () => {
   vi.restoreAllMocks();
   await db.records.clear();
@@ -29,8 +32,29 @@ function start(path = "/discover") {
   );
 }
 describe("application views", () => {
-  it("exposes new states and combines California with an exact city", async () => {
+  it("shows auditable criterion scores and confidence limits on a lab profile", async () => {
+    start("/labs/meyerson");
+    expect(
+      await screen.findByRole("table", { name: "Résumé fit criteria" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("table", { name: "Prestige evidence criteria" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Demonstrated core methods", { exact: false }),
+    ).toBeInTheDocument();
+  });
+  it("can explore all fit levels without overwriting the saved minimum", async () => {
+    await db.preferences.put({ ...defaultPreferences, minFit: 70 });
     start();
+    await userEvent.click(
+      await screen.findByRole("button", { name: "Explore all fit levels" }),
+    );
+    expect(screen.getByLabelText("Minimum résumé fit")).toHaveValue("0");
+    expect((await db.preferences.get("main"))?.minFit).toBe(70);
+  });
+  it("exposes new states and combines California with an exact city", async () => {
+    start("/discover?minFit=0");
     await userEvent.click(await screen.findByLabelText("California"));
     await userEvent.selectOptions(
       screen.getByLabelText("City"),
@@ -42,7 +66,7 @@ describe("application views", () => {
     expect(screen.queryByLabelText("Alaska")).not.toBeInTheDocument();
   });
   it("expands discovery in batches and resets the batch when filters change", async () => {
-    start();
+    start("/discover?minFit=0");
     await screen.findByRole("heading", { name: "Discover your next chapter." });
     expect(screen.getAllByTestId("lab-card")).toHaveLength(24);
     await userEvent.click(
@@ -70,7 +94,9 @@ describe("application views", () => {
     });
     expect(
       link.closest("article")?.querySelector(".combined strong"),
-    ).toHaveTextContent("95/100");
+    ).toHaveTextContent(
+      `${labs.find((l) => l.id === "bernstein")!.prestige}/100`,
+    );
   });
   it("clears persisted restrictive fit settings from the empty results view", async () => {
     await db.preferences.put({ ...defaultPreferences, minFit: 100 });
@@ -172,10 +198,10 @@ describe("application views", () => {
     for (const card of screen.getAllByTestId("lab-card"))
       expect(card).toHaveTextContent(/, MA/);
     fireEvent.change(screen.getByLabelText("Minimum résumé fit"), {
-      target: { value: "95" },
+      target: { value: "70" },
     });
     expect(screen.getAllByTestId("lab-card")).toHaveLength(
-      Math.min(24, labs.filter((l) => l.state === "MA" && l.fit >= 95).length),
+      Math.min(24, labs.filter((l) => l.state === "MA" && l.fit >= 70).length),
     );
     await userEvent.click(screen.getByRole("button", { name: "Nationwide" }));
     expect(screen.getByLabelText("Massachusetts")).not.toBeChecked();

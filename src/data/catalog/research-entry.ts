@@ -1,5 +1,6 @@
 import { labSchema } from "../../domain/schemas";
 import type { Lab } from "../../domain/types";
+import { scoredFields } from "../scoring";
 
 type RequiredFields =
   | "id"
@@ -11,12 +12,8 @@ type RequiredFields =
   | "fields"
   | "description"
   | "website"
-  | "fit"
-  | "prestige"
   | "strengths"
-  | "gaps"
-  | "prestigeReason"
-  | "assessment";
+  | "gaps";
 export type ResearchEntry = Pick<Lab, RequiredFields> &
   Partial<Omit<Lab, RequiredFields>> & { evidence?: string };
 
@@ -41,6 +38,7 @@ export function researchLab(input: ResearchEntry): Lab {
     ...Object.fromEntries(
       Object.entries(data).filter(([, value]) => value !== undefined),
     ),
+    ...scoredFields(data.id),
     sources: data.sources ?? [
       {
         url: data.website,

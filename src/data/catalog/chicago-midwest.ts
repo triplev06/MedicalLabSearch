@@ -16,8 +16,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Human lung cells and miniature tissue models are used to study lung cancer and infection.",
     website:
       "https://pme.uchicago.edu/news-events/news/inside-lab-how-joyce-chen-protects-lungs-disease",
-    fit: 95,
-    prestige: 90,
     strengths: [
       "Direct lung-cancer cell culture background; microscopy and molecular assays provide a useful foundation.",
     ],
@@ -25,10 +23,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Pluripotent stem-cell differentiation and organoid engineering are not documented in the supplied profile.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "A specialized lung-modeling program bridging molecular engineering and cancer biology. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Highest-priority Chicago scientific match. The official research feature verifies lung-cell and tissue-model work. A technician or lab-manager inquiry invitation is indexed on the lab's Join page, but that page could not be directly retrieved; current recruitment is unconfirmed. Fit is an editorial assessment of supplied skills, not a hiring prediction.",
     sources: [
       {
         url: "https://pme.uchicago.edu/news-events/news/inside-lab-how-joyce-chen-protects-lungs-disease",
@@ -50,8 +44,6 @@ export const chicagoMidwestLabs: Lab[] = [
     description:
       "Studies mitochondrial quality control, stress responses and their effects on cancer growth and metastasis.",
     website: "https://biologicalsciences.uchicago.edu/faculty/kay-macleod-phd",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cancer-cell molecular work and protein assays transfer to mechanistic mitochondrial research.",
     ],
@@ -59,10 +51,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Mitophagy-specific assays, metabolic profiling and mouse-model work need training.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "An established Ben May cancer program using cell biology, animal models and human samples. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Strong mechanistic cancer fit across liver and pancreatic projects; no assistant vacancy verified. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Kay Macleod",
       email: "kmacleod@uchicago.edu",
@@ -88,8 +76,6 @@ export const chicagoMidwestLabs: Lab[] = [
     description:
       "Investigates RNA regulation, epigenetics and autophagy in environmental carcinogenesis and treatment resistance, emphasizing skin cancer.",
     website: "https://biologicalsciences.uchicago.edu/faculty/yu-ying-he-phd",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cell culture, PCR and protein assays support molecular cancer projects.",
     ],
@@ -97,10 +83,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "RNA-modification assays and skin-specific models are additional training areas.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "An interdisciplinary molecular carcinogenesis program within UChicago cancer biology. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Good technical transfer from lung cancer. Public training advertisements include postdocs and students; those do not establish an assistant opening. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Yu-Ying He",
       email: "yyhe@uchicago.edu",
@@ -126,8 +108,6 @@ export const chicagoMidwestLabs: Lab[] = [
     description:
       "Examines disease-specific macrophage dysfunction and develops cancer and inflammatory-disease therapies.",
     website: "https://biologicalsciences.uchicago.edu/faculty/lev-becker-0",
-    fit: 85,
-    prestige: 85,
     strengths: [
       "Cancer-cell experimental experience and Western blotting support functional studies.",
     ],
@@ -135,10 +115,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Macrophage isolation, proteomics and immune-cell assays are not documented strengths.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "A Ben May program connecting macrophage mechanisms with therapeutic development. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "A credible transition into cancer immunology; check for a suitable staff role before treating this as an application. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Lev Becker",
       email: "levb@uchicago.edu",
@@ -164,8 +140,6 @@ export const chicagoMidwestLabs: Lab[] = [
     description:
       "Studies T-cell activation and differentiation to improve antitumor immunity and translational immunotherapies.",
     website: "https://news.uchicago.edu/profile/thomas-gajewski?page=1",
-    fit: 80,
-    prestige: 95,
     strengths: [
       "Molecular cancer experience and clinical documentation are useful for translational work.",
     ],
@@ -173,10 +147,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "T-cell functional assays and in vivo immunology are not established in the profile.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "The institutional profile documents cancer-immunology leadership and national professional service. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "High-visibility cancer immunology target with training gaps; the source establishes research rather than recruitment. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Thomas Gajewski",
       email: "tgajewsk@bsd.uchicago.edu",
@@ -202,8 +172,6 @@ export const chicagoMidwestLabs: Lab[] = [
     description:
       "Investigates signaling and nutritional influences on cancer metabolism and therapeutic response.",
     website: "https://biologicalsciences.uchicago.edu/faculty/jing-chen-md",
-    fit: 85,
-    prestige: 95,
     strengths: [
       "Cell-based cancer assays, molecular methods and Prism analysis transfer well.",
     ],
@@ -211,10 +179,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Metabolomics instrumentation and specialized metabolic-flux methods need development.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "The PI directs the Cancer Metabolomics Research Center and holds translational-science leadership roles. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Strong cancer-cell research match; metabolomics specialization could shape which technician projects are suitable. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Jing Chen",
       email: "jingchen@uchicago.edu",
@@ -240,8 +204,6 @@ export const chicagoMidwestLabs: Lab[] = [
     description:
       "Studies signaling mechanisms driving tumor progression and metastasis, especially triple-negative breast cancer.",
     website: "https://benmay.uchicago.edu/faculty/marsha-rosner-phd",
-    fit: 90,
-    prestige: 90,
     strengths: [
       "Cell culture, immunostaining and protein assays fit experimental cancer-signaling work.",
     ],
@@ -249,10 +211,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Systems proteomics, sequencing analysis and mouse models are not documented experience.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "An established Ben May metastasis program combining molecular and systems methods. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Strong transfer from lung-cancer wet-lab work to solid-tumor signaling; no relevant vacancy verified. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Marsha Rosner",
       email: "mrosner@uchicago.edu",
@@ -279,8 +237,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Uses functional genomics and model systems to uncover blood-cancer vulnerabilities and hematopoietic regulation.",
     website:
       "https://biologicalsciences.uchicago.edu/faculty/megan-mcnerney-md-phd",
-    fit: 80,
-    prestige: 90,
     strengths: [
       "PCR, cell experiments and careful documentation support functional cancer research.",
     ],
@@ -288,10 +244,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Blood-cell models, gene-editing screens and genomic analysis need training.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "An active pathology program connecting cancer genomics to therapeutic vulnerabilities. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Worth targeting for molecular support roles; a shift from epithelial lung cancer to myeloid disease is substantial. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Megan McNerney",
       email: "mcnerney@uchicago.edu",
@@ -317,8 +269,6 @@ export const chicagoMidwestLabs: Lab[] = [
     description:
       "Studies regulatory T-cell development, antigen recognition and immune responses to cancer.",
     website: "https://biologicalsciences.uchicago.edu/faculty/peter-savage-phd",
-    fit: 75,
-    prestige: 90,
     strengths: [
       "Molecular assays and microscopy offer a foundation for tumor-immunity studies.",
     ],
@@ -326,10 +276,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Specialized T-cell assays, tetramers and mouse tumor models are not documented skills.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "An established cancer-immunology group led by the Committee on Immunology chair. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "A reasonable immunology transition, with more retraining than direct cancer-cell signaling groups. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Peter Savage",
       email: "psavage@bsd.uchicago.edu",
@@ -360,8 +306,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Investigates interactions between radiotherapy and cancer immunotherapy.",
     website:
       "https://timeportal.uchicago.edu/UME/ScholarlyOpportunities/Projects/168",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cancer-cell assays, microscopy and scientific writing support mechanistic treatment-response work.",
     ],
@@ -369,10 +313,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Radiation experiments and immune-model techniques need project-specific training.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "An interdisciplinary radiation and cellular oncology environment with laboratory and clinical exchange. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Scientifically relevant treatment-response target. The cited student project is research evidence, not employment recruitment. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     sources: [
       {
         url: "https://timeportal.uchicago.edu/UME/ScholarlyOpportunities/Projects/168",
@@ -398,8 +338,6 @@ export const chicagoMidwestLabs: Lab[] = [
     description:
       "Studies mechanisms of immunotherapy resistance through tumor-microenvironment research and preclinical cancer models.",
     website: "https://biologicalsciences.uchicago.edu/faculty/randy-f-sweis-md",
-    fit: 85,
-    prestige: 85,
     strengths: [
       "Cancer molecular work and clinical chart documentation complement translational questions.",
     ],
@@ -407,10 +345,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Bladder/skin tumor models and immune phenotyping are additional training areas.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "A physician-scientist program connecting preclinical models and therapeutic development. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Good combined bench and clinical-research fit; patient trial activity does not mean staff recruitment. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Randy Sweis",
       email: "rsweis@uchicago.edu",
@@ -436,8 +370,6 @@ export const chicagoMidwestLabs: Lab[] = [
     description:
       "Targets intracellular signaling and BCL-2-family proteins to induce cancer-cell death and modulate immunity.",
     website: "https://profiles.uchicago.edu/profiles/display/915378",
-    fit: 90,
-    prestige: 90,
     strengths: [
       "Cancer-cell culture, Western blotting and immunostaining fit apoptosis and signaling experiments.",
     ],
@@ -445,10 +377,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Peptide chemistry, nanoparticle delivery and immune-cell assays need training.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "A translational pediatric and adult cancer program linking chemical biology with clinical research. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Strong mechanistic fit for cancer-cell and protein-assay experience. A separate lab news snippet mentions a technician requisition; its current status could not be verified, so this remains an interest target. Fit is an editorial assessment of supplied skills, not a hiring prediction.",
     sources: [
       {
         url: "https://profiles.uchicago.edu/profiles/display/915378",
@@ -471,8 +399,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Uses genetic perturbations in cellular and animal models to study mitochondrial control of signaling and disease.",
     website:
       "https://www.feinberg.northwestern.edu/sites/sqlifts/programs/discovery.html",
-    fit: 90,
-    prestige: 95,
     strengths: [
       "Lung-cancer molecular experience provides a strong entry to cell-based metabolism studies.",
     ],
@@ -480,10 +406,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Causal genetic models and metabolic assays require additional training.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "The official institute page describes foundational mitochondrial discoveries and major research leadership. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "High-priority Northwestern scientific target; investigator recruitment on this institute page is not an assistant job. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Navdeep Chandel",
       email: "nav@northwestern.edu",
@@ -509,8 +431,6 @@ export const chicagoMidwestLabs: Lab[] = [
     description:
       "Studies resolution and repair after acute lung inflammation and injury, aiming to improve ARDS therapies.",
     website: "https://labs.feinberg.northwestern.edu/singer/index.html",
-    fit: 80,
-    prestige: 90,
     strengths: [
       "Lung-cell research, microscopy and clinical documentation offer transferable skills.",
     ],
@@ -518,10 +438,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "ARDS models, immune regulation and animal work differ from lung-cancer cell studies.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "A dedicated lung-repair program integrated with the Simpson Querrey Lung Institute. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Good lung-biology alternative if the user is open to noncancer disease. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Benjamin D. Singer",
       email: "benjamin-singer@northwestern.edu",
@@ -548,8 +464,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Examines aging-related proteostasis stress and tissue macrophage dysfunction, using pneumonia models.",
     website:
       "https://www.feinberg.northwestern.edu/sites/dgp/research-interests/index.html",
-    fit: 80,
-    prestige: 90,
     strengths: [
       "Lung molecular biology and protein assays are relevant foundations.",
     ],
@@ -557,10 +471,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Aging, pneumonia animal models and tissue-resident macrophage methods need training.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "An established pulmonary research group within Northwestern's lung-biology community. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "A biologically relevant lung research option; this named lab's research is verified in the detailed official mentor profile, which offers no staff opening. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "G. R. Scott Budinger",
       email: "s-buding@northwestern.edu",
@@ -587,8 +497,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Uses biochemical, genetic and genomic approaches to understand how cancer cells exploit protein-homeostasis systems.",
     website:
       "https://www.cancer.northwestern.edu/research/membership/profile.html?id=c4215de07c2a979ce4ff8ab39f3a29d9",
-    fit: 85,
-    prestige: 85,
     strengths: [
       "Western blotting and cancer-cell experiments support protein-stress mechanism studies.",
     ],
@@ -596,10 +504,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "High-throughput genetic screening and genomic pipelines need further experience.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "A cancer-center program combining molecular biochemistry with systematic discovery. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Good technical match for molecular support work; a general invitation to students and others is not proof of a staff vacancy. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Marc Mendillo",
       email: "mendillo@northwestern.edu",
@@ -626,8 +530,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Develops lung-cancer biomarkers and studies progression, cachexia and cancer-associated immune changes.",
     website:
       "https://www.rushu.rush.edu/research-rush-university/departmental-research/anatomy-cell-biology-research/laboratory-jeffrey-borgia-phd",
-    fit: 95,
-    prestige: 85,
     strengths: [
       "Direct lung-cancer background, protein assays and clinical chart work support the translational mix.",
     ],
@@ -635,10 +537,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Targeted mass spectrometry and multiplex biomarker platforms are not established skills.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "A dedicated thoracic biomarker laboratory with clinical collaborations and named research staff. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "One of the closest Chicago subject matches, including potential bench and clinical-support tracks; no current vacancy verified. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Jeffrey A. Borgia",
       email: "jeffrey_a_borgia@rush.edu",
@@ -665,8 +563,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Studies p53-related signaling and therapeutic vulnerabilities in cancer, including non-small-cell lung cancer.",
     website:
       "https://www.rushu.rush.edu/research-rush-university/departmental-research/anatomy-cell-biology-research/laboratory-carl-maki-phd",
-    fit: 95,
-    prestige: 85,
     strengths: [
       "Direct lung-cancer cell culture, immunostaining and protein assays align closely.",
     ],
@@ -674,10 +570,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Specific p53/DREAM pathway expertise and in vivo drug testing need training.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "A verified joint cancer laboratory with mechanistic lung-cancer research. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Excellent scientific transfer; Maki and Duan jointly direct this group, so it is counted once. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Carl Maki and Lei Duan",
       email: "Carl_Maki@rush.edu",
@@ -704,8 +596,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Studies niche signaling in hematopoiesis and leukemia using culture assays, genetic screens and patient-derived models.",
     website:
       "https://www.luc.edu/stritch/cancerbiology/research/ourfaculty/profiles/zhangjiwang.shtml",
-    fit: 80,
-    prestige: 80,
     strengths: [
       "Cell culture and PCR provide a foundation for functional disease-mechanism experiments.",
     ],
@@ -713,10 +603,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Hematopoietic stem-cell techniques, CRISPR screening and xenografts need training.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "A focused translational leukemia laboratory within Loyola's Cancer Biology department. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "A credible broader cancer option in Maywood; blood-cancer specialization increases the training gap. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Jiwang Zhang",
       email: "jzhang@luc.edu",
@@ -743,8 +629,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Examines cell-fate regulation and protein kinase C signaling in skin biology and ultraviolet-induced carcinogenesis.",
     website:
       "https://www.luc.edu/stritch/molecularpharmacologyandneuroscience/people/faculty/profiles/denningmitchell.shtml",
-    fit: 85,
-    prestige: 80,
     strengths: [
       "Cell culture, molecular assays and immunostaining transfer to epithelial cancer signaling.",
     ],
@@ -752,10 +636,6 @@ export const chicagoMidwestLabs: Lab[] = [
       "Keratinocyte/melanocyte models and ultraviolet-response experiments need training.",
       "A suitable assistant or technician vacancy and its eligibility requirements have not been verified.",
     ],
-    prestigeReason:
-      "A molecular carcinogenesis program spanning cancer biology and pharmacology. Editorial score for research environment, not a formal ranking.",
-    assessment:
-      "Solid technical fit outside lung cancer, based in Loyola's Maywood medical-campus environment. Fit is an editorial assessment of the supplied skills, not a hiring prediction.",
     contact: {
       name: "Mitchell Denning",
       email: "mdennin@luc.edu",

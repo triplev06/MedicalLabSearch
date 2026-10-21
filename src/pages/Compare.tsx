@@ -3,6 +3,8 @@ import { Columns2, X } from "lucide-react";
 import { labs } from "../data/labs";
 import { useAtlas } from "../app/AtlasProvider";
 import { combinedScore } from "../domain/ranking";
+import { fitBand } from "../domain/scoring";
+import { reviewFor } from "../data/scoring";
 import {
   PageHeading,
   Empty,
@@ -17,6 +19,8 @@ export function Compare() {
       .map((id) => labs.find((l) => l.id === id))
       .filter((l): l is Lab => !!l);
   const rows: { label: string; render: (l: Lab) => React.ReactNode }[] = [
+    { label: "Fit category", render: (l) => fitBand(l.fit) },
+    { label: "Fit evidence", render: (l) => reviewFor(l.id).fitEvidence },
     {
       label: "Résumé fit",
       render: (l) => (
@@ -26,7 +30,10 @@ export function Compare() {
         </strong>
       ),
     },
-    { label: "Prestige", render: (l) => <strong>{l.prestige}/100</strong> },
+    {
+      label: "Prestige evidence",
+      render: (l) => <strong>{l.prestige}/100</strong>,
+    },
     {
       label: "Combined recommendation",
       render: (l) => <strong>{combinedScore(l, prefs.fitWeight)}/100</strong>,

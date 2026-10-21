@@ -97,7 +97,6 @@ describe("expanded research coverage", () => {
   it("does not turn a research-only page into a hiring claim", () => {
     const l = researchLab({
       ...labs[0],
-      id: "verified-research",
       availability: undefined,
       deadline: undefined,
       applicationUrl: undefined,

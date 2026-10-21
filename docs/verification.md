@@ -6,8 +6,8 @@ Verified October 21, 2026 using Node.js 24.22.0.
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
 | ESLint                         | Passed                                                                                                                |
 | TypeScript                     | Passed                                                                                                                |
-| Vitest / React Testing Library | 39 tests passed in 7 files                                                                                            |
-| Playwright Chromium            | 11 passed; 1 intentionally skipped                                                                                    |
+| Vitest / React Testing Library | 46 tests passed in 8 files                                                                                            |
+| Playwright Chromium            | 13 passed; 1 intentionally skipped                                                                                    |
 | Production build               | Passed; static output in `dist`                                                                                       |
 | Production browser smoke       | Seven direct routes, compiled asset loading, batched discovery, application movement and reload persistence passed    |
 | npm audit                      | Zero vulnerabilities                                                                                                  |
@@ -18,9 +18,21 @@ Browser tests cover desktop and Pixel 7 emulation. The desktop pointer-drag test
 
 Accessibility checks use axe WCAG A/AA rules across six routes and populated dashboards in light/dark mode. They supplement keyboard interactions, visible focus states, focus-managed dialogs and visual inspection. They do not certify hardware touch, real-device Safari or every assistive technology.
 
-The official-source catalog now contains 189 entries across 17 states: 185 laboratory groups and four OhioHealth clinical research/training programs. Ohio has 58 entries, including 29 in Columbus. Availability is six confirmed role advertisements, nine inquiry pathways, 172 interest targets and two closed technician routes. New research pages do not establish new vacancies. No fixed or rolling technician deadline was verified, so Closing Soon is intentionally empty. Official availability remains accurate only as of the record's verification date. Recheck before applying.
+The official-source catalog now contains 201 entries across 20 states: 197 laboratory groups and four OhioHealth clinical research/training programs. Ohio has 58 entries, including 29 in Columbus. Availability is six confirmed role advertisements, nine inquiry pathways, 184 interest targets and two closed technician routes. New research pages do not establish new vacancies. No fixed or rolling technician deadline was verified, so Closing Soon is intentionally empty. Official availability remains accurate only as of the record's verification date. Recheck before applying.
 
-## Nationwide 100-lab expansion verification
+## Strict scoring and broader-field verification
+
+Version 2 removes all 189 old numeric score guesses and aggregate explanations. Every published lab now has a validated nine-criterion review; score coverage, bounds, weighting, missing evidence, unverified requirements caps and separate eligibility barriers are tested. The earlier fit distribution (166/189 at 80+) is replaced by reviewed fit 25–85, with two labs at 80+. Prestige evidence spans 20–75. These observed ranges are not enforced percentile targets.
+
+Twelve official-source additions broaden institutions and fields, for 201 entries across 20 states. Profile tables show awarded criterion definitions, point contributions, rounding and caps. Cards/comparison say Prestige evidence, with a visible discovery caveat distinguishing sparse documentation from poor reputation. Explore all fit levels changes the public view without overwriting the saved threshold.
+
+Independent review identified and resolved missing criterion anchors, inquiry routes bypassing the unknown-requirements cap, and misleading prestige labeling. A separate `requirementsVerified` flag now defaults false and is checked independently of experience-route level. A catalog requirement recheck also corrected the specialized protein-purification route's fit treatment. No institutional brand bonus or keyword-overlap score is used.
+
+Unit/integration tests cover the score model and UI, plus existing tracking and backups. A real chart-module preload during test collection avoids spending deadline-panel assertion time on cold Vite/Recharts transformation; no chart is mocked and the assertion timeout is unchanged. Direct desktop/phone scoring workflows cover high-threshold results, all-fit exploration, a distant-field lab, criterion tables, axe checks and horizontal overflow. Production routes, compiled assets, catalog batches and tracker reload remain verified. The private name/file-marker/email scan again returns zero matches.
+
+Full criterion anchors and limits: [version 2 scoring rubric](research/scoring-rubric.md).
+
+## Earlier nationwide 100-lab expansion verification
 
 Three separate Superpowers research tasks added exactly 100 distinct PI groups across 18 major metros. Each record has an official group or detailed faculty research source. Coverage and duplicate tests verify 189 total entries, newly represented states and unique named PI groups. Existing IDs remain intact. An independent reviewer confirmed all regional counts and availability totals and spot-checked research/location and recruitment sources; this was not a second exhaustive revalidation of every source.
 

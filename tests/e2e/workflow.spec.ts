@@ -2,10 +2,48 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import fs from "node:fs/promises";
 
+test("strict score evidence and all-fit exploration remain transparent", async ({
+  page,
+}) => {
+  await page.goto("/discover?minFit=80");
+  await expect(page.getByTestId("lab-card")).toHaveCount(2);
+  await page.getByRole("button", { name: "Explore all fit levels" }).click();
+  await expect(page).toHaveURL(/minFit=0/);
+  await expect(
+    page.getByText("Showing 24 of 201 matching entries", { exact: true }),
+  ).toBeVisible();
+  await page
+    .getByRole("textbox", { name: "Search laboratories" })
+    .fill("Cordes");
+  await expect(page.getByTestId("lab-card")).toHaveCount(1);
+  await expect(page.getByTestId("lab-card")).toContainText("Distant fit");
+  await page
+    .getByRole("link", { name: "Cordes Laboratory", exact: true })
+    .click();
+  await expect(
+    page.getByRole("table", { name: "Résumé fit criteria" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("table", { name: "Prestige evidence criteria" }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Outside stated interests", { exact: true }),
+  ).toBeVisible();
+  const audit = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+    .analyze();
+  expect(audit.violations.map((v) => v.id)).toEqual([]);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth + 1,
+    ),
+  ).toBe(true);
+});
+
 test("new nationwide state and city filters lead to a persistent application", async ({
   page,
 }) => {
-  await page.goto("/discover");
+  await page.goto("/discover?minFit=0");
   await expect(
     page.getByRole("heading", { name: "Discover your next chapter." }),
   ).toBeVisible();
@@ -37,7 +75,7 @@ test("new nationwide state and city filters lead to a persistent application", a
 test("regional discovery finds expanded labs and keeps saved applications after reload", async ({
   page,
 }) => {
-  await page.goto("/discover");
+  await page.goto("/discover?minFit=0");
   await page
     .getByRole("button", { name: "Columbus area", exact: true })
     .click();
@@ -63,7 +101,7 @@ test("regional discovery finds expanded labs and keeps saved applications after 
     .click();
   await expect(page.getByTestId("lab-card")).toHaveCount(24);
   await expect(
-    page.getByText("Showing 24 of 189 matching entries", { exact: true }),
+    page.getByText("Showing 24 of 201 matching entries", { exact: true }),
   ).toBeVisible();
   await page.getByRole("link", { name: /Application Tracker/ }).click();
   await page.reload();
@@ -75,7 +113,7 @@ test("regional discovery finds expanded labs and keeps saved applications after 
 test("populated dashboard charts are accessible in light and dark mode", async ({
   page,
 }, info) => {
-  await page.goto("/discover");
+  await page.goto("/discover?minFit=0");
   await page
     .getByRole("button", { name: "Save Meyerson Laboratory", exact: true })
     .click();
@@ -118,7 +156,7 @@ test("discovery to application, persistent details, comparison and backup restor
 }, info) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("/discover");
+  await page.goto("/discover?minFit=0");
   await expect(
     page.getByRole("heading", { name: "Discover your next chapter." }),
   ).toBeVisible();
@@ -131,6 +169,13 @@ test("discovery to application, persistent details, comparison and backup restor
   await expect(page.getByLabel("Massachusetts", { exact: true })).toBeChecked();
   await expect(page.getByTestId("lab-card").first()).toContainText(", MA");
   await page.getByLabel("Minimum résumé fit", { exact: true }).press("End");
+  await expect(page.getByTestId("lab-card")).toHaveCount(0);
+  // A strict rubric intentionally has no near-perfect matches. Lower the
+  // threshold to inspect the direct-fit Massachusetts roles.
+  for (let step = 0; step < 5; step++)
+    await page
+      .getByLabel("Minimum résumé fit", { exact: true })
+      .press("ArrowLeft");
   await page
     .getByLabel("Minimum résumé fit", { exact: true })
     .press("ArrowLeft");
@@ -264,7 +309,7 @@ test("pointer dragging moves a record and preserves history", async ({
     info.project.name.includes("mobile"),
     "Pointer dragging is checked on desktop; mobile uses accessible move controls in the full workflow.",
   );
-  await page.goto("/discover");
+  await page.goto("/discover?minFit=0");
   await page
     .getByRole("button", { name: "Save Meyerson Laboratory", exact: true })
     .click();

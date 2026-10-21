@@ -46,13 +46,13 @@ The architecture uses static hosting and is compatible with the Hobby tier. Verc
 
 ## Published catalog and verification
 
-`src/data/labs.ts` assembles **189 official-source entries across 17 states**, checked on **October 21, 2026**: 185 laboratory groups and four clearly identified OhioHealth clinical research/training programs. The catalog balances advertised technician/assistant roles with inquiry and monitoring targets. Geographic coverage is nationwide in scope, not exhaustive of all states or research fields.
+`src/data/labs.ts` assembles **201 official-source entries across 20 states**, checked on **October 21, 2026**: 197 laboratory groups and four clearly identified OhioHealth clinical research/training programs. The catalog balances advertised technician/assistant roles with inquiry and monitoring targets. Geographic coverage is nationwide in scope, not exhaustive of all states or research fields.
 
 The Ohio/Chicago expansion added 14 OSU Wexner/James labs, 11 Nationwide Children's labs, 25 Cleveland Clinic labs, three additional Case Western Reserve labs, 12 UChicago labs, four Northwestern labs, two Rush labs, two Loyola labs and four OhioHealth programs. A further **100 distinct labs across 18 major metros** now cover western/midwestern, northeastern and southern research centers. Original stable IDs remain unchanged. Columbus has 29 entries including the four OhioHealth programs; Ohio has 58 entries. Research modules live in `src/data/catalog/` and remain separate from browser-private tracking records. See [nationwide selection and economic-area evidence](docs/research/nationwide-selection.md) for the city distribution, sources and interpretation of the location preference.
 
 Discover includes Columbus, Ohio and Chicago regional shortcuts, a city selector, multi-state filtering and city-aware text search. All represented states appear automatically using a full U.S. state-name map. Region, research query and other filters combine; public city/state selections can be bookmarked without sharing private notes or application statuses. Equivalent research-field labels are normalized across modules. Discovery shows 24 initial cards and an accessible Show more control; filtering or reranking resets the batch while the total match count remains visible.
 
-Availability totals as verified: **six confirmed role advertisements, nine inquiry pathways, 172 research-interest targets and two explicitly closed technician routes**. Research-interest entries do not establish job vacancies. OhioHealth clinical trial pages describe research programs, not staff recruitment; its externship has enrollment restrictions and no verified upcoming cycle deadline.
+Availability totals as verified: **six confirmed role advertisements, nine inquiry pathways, 184 research-interest targets and two explicitly closed technician routes**. Research-interest entries do not establish job vacancies. OhioHealth clinical trial pages describe research programs, not staff recruitment; its externship has enrollment restrictions and no verified upcoming cycle deadline.
 
 Each record contains stable ID, PI, institution, location, research fields, official URL(s), verified contact or `null`, source evidence/claim categories, verification date, requirements, experience/eligibility caveats, application method and editorial fit/prestige assessments. Never infer a position from an existing lab page or a staff list.
 
@@ -78,16 +78,18 @@ To refresh the catalog:
 
 ## Recommendation rubric
 
-Matching is a development-time editorial assessment using minimized, non-identifying qualifications, not automated keyword counting. Fit considers direct research alignment, actual hands-on techniques, academic foundations, experience-level suitability, transferable clinical/manuscript skills and learning gaps. Clinical exposure is not represented as animal-work or gene-editing experience. Unknown citizenship, work authorization, time commitment and enrollment eligibility remain unknown.
+Version 2 replaces inflated aggregate guesses with explicit 0–4 evidence reviews for every lab. Fit weights are research alignment 25, demonstrated methods 30, academic preparation 15, experience-level suitability 20 and transferable workflow 10. Unknown role prerequisites cap fit at 75; generic-only methods or indirect interests cap it at 55; known unmet prerequisites cap it at 40. Optional advantages are distinguished from mandatory requirements. Lack of prior lab employment is not an automatic disqualification.
 
-Prestige considers the documented **relevant research specialization, available methods/facilities, collaboration and mentorship/training environment**. Official source evidence and a short rationale are stored per lab. It is a broad editorial assessment in five-point increments, not an institutional ranking, an independent measurement or a claim of exact numerical precision. A specialist institute can offer a compelling environment without a famous university name. The initial range primarily reflects established biomedical research environments; scores should be reconsidered when evidence changes.
+The UI labels the second index **Prestige evidence**. It weights documented impact 40, resources 25, mentorship 20 and collaboration 15. A famous institution earns no automatic bonus. Missing documentation can lower this evidence index without establishing poor quality or weak overall reputation. Profiles show each awarded evidence level, weighted contribution, explanation and cap. All reviews remain editorial, not validated probabilities or official rankings.
+
+Twelve additional regional-institution and adjacent-field labs broaden the research mix. Current observed fit spans 25–85 (two labs at 80+); prestige evidence spans 20–75. No target distribution, percentile rescaling or arbitrary score multiplier is applied. See [complete criterion anchors, caps and audit](docs/research/scoring-rubric.md).
 
 ```text
-Combined recommendation = fit × fitWeight + prestige × (1 − fitWeight)
-Default: 60% fit / 40% prestige; minimum fit: 50
+Combined recommendation = fit × fitWeight + prestigeEvidence × (1 − fitWeight)
+Default: 60% fit / 40% prestige evidence; minimum fit: 50
 ```
 
-Changing the sliders updates discovery immediately and saves preferences. Public filter URLs override saved preferences for that bookmarked view. Numeric scores are never acceptance probabilities. Eligibility barriers are separate flags. Dashboard recommendations exclude closed/expired and explicitly restricted tracks; all catalog records remain inspectable in Discover. Comparisons explain tradeoffs rather than declare an objectively superior lab.
+The minimum slider displays points out of 100. **Explore all fit levels** sets the public view to zero without overwriting the saved minimum. Sliders continue to save explicit preference changes. Public filter URLs override saved preferences for that bookmarked view. Eligibility barriers and availability remain separate. Dashboard recommendations exclude closed/expired and explicitly restricted tracks; all records remain inspectable in Discover. Comparisons explain tradeoffs rather than declare an objectively superior lab.
 
 ## Deadline policy
 

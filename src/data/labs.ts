@@ -6,6 +6,8 @@ import { chicagoMidwestLabs } from "./catalog/chicago-midwest";
 import { nationalWestLabs } from "./catalog/national-west";
 import { nationalNortheastLabs } from "./catalog/national-northeast";
 import { nationalSouthLabs } from "./catalog/national-south";
+import { scoredFields } from "./scoring";
+import { broaderLabs } from "./catalog/broader";
 
 const md =
   "https://www.mdanderson.org/research/departments-labs-institutes/labs/";
@@ -16,7 +18,15 @@ const common = {
   eligibilityNote:
     "Work authorization, start date and time commitment must be confirmed directly. Academic alignment does not establish employment eligibility.",
 };
-type Entry = Omit<Lab, keyof typeof common | "sources"> &
+type Entry = Omit<
+  Lab,
+  | keyof typeof common
+  | "sources"
+  | "fit"
+  | "prestige"
+  | "assessment"
+  | "prestigeReason"
+> &
   Partial<Pick<Lab, keyof typeof common>> & {
     evidence: string;
     extraSources?: Lab["sources"];
@@ -26,6 +36,7 @@ function entry(e: Entry): Lab {
   return labSchema.parse({
     ...common,
     ...data,
+    ...scoredFields(data.id),
     sources: [
       {
         url: data.applicationUrl ?? data.website,
@@ -70,8 +81,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Use the research technician posting linked on the official contact page; direct questions to the listed lab contact. The separate postdoctoral roles have different requirements.",
-    fit: 95,
-    prestige: 95,
     strengths: [
       "Lung cancer cell-model experience directly supports the scientific focus.",
       "Cell culture, PCR and scientific writing offer a strong experimental foundation.",
@@ -79,10 +88,6 @@ const initialLabs: Lab[] = [
     gaps: [
       "RNA-splicing assays and computational genomics are not documented.",
     ],
-    prestigeReason:
-      "The page documents a Dana-Farber/Broad research environment and alumni progression into research leadership.",
-    assessment:
-      "Strong subject and technician-level alignment; hiring remains competitive. Do not apply to the separate specialty-trained postdoctoral track.",
     evidence:
       "The official page advertises a lung-cancer-focused research technician opening and a biology bachelor’s-level entry route; a lab coordinator is listed.",
   }),
@@ -110,8 +115,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Apply through the official Research Technician posting, requisition JR-7283.",
-    fit: 90,
-    prestige: 95,
     strengths: [
       "Cancer cell biology and molecular assays align with the project.",
       "Experimental record keeping and data analysis support technician duties.",
@@ -120,10 +123,6 @@ const initialLabs: Lab[] = [
       "CRISPR, genomics and Python/R skills need development.",
       "Confirm full-time availability.",
     ],
-    prestigeReason:
-      "The posting describes cancer-genomics research, senior postdoctoral mentorship and collaboration between two laboratories in a specialist cancer center.",
-    assessment:
-      "Realistic technician-level qualifications with a competitive genomics learning curve.",
     evidence:
       "A live official requisition describes a full-time technician vacancy, bachelor’s-level qualifications and a lung cancer response project.",
   }),
@@ -150,8 +149,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Read the technician section of the official Join the Lab page and contact the PI to confirm the application route.",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cell culture and molecular biology are directly relevant.",
       "Cancer research and manuscript skills support project participation.",
@@ -159,10 +156,6 @@ const initialLabs: Lab[] = [
     gaps: [
       "Flow cytometry, CRISPR and xenograft experience are not documented.",
     ],
-    prestigeReason:
-      "The lab describes integrated functional screening, translational therapy development and technician coauthorship opportunities at a specialist cancer center.",
-    assessment:
-      "Plausible technician pathway with substantial training needs in gene editing and animal work.",
     evidence:
       "The technician section explicitly recruits at levels I/II and describes cell culture, CRISPR, flow cytometry and mouse xenograft training. Continuous postdoctoral recruitment is not treated as a technician rolling policy.",
   }),
@@ -187,8 +180,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Contact the PI about the advertised research assistant role and request the current formal application route.",
-    fit: 80,
-    prestige: 90,
     strengths: [
       "Clinical context and experimental biology can bridge translational projects.",
       "Scientific writing and data organization support collaborative research.",
@@ -197,10 +188,6 @@ const initialLabs: Lab[] = [
       "Quantitative modeling and engineering methods are not documented.",
       "Assistant-specific degree requirements need confirmation.",
     ],
-    prestigeReason:
-      "A dedicated cancer physics/engineering group offers an interdisciplinary environment within a specialist cancer center.",
-    assessment:
-      "An exploratory assistant application is reasonable; project allocation and technical requirements need a direct conversation.",
     evidence:
       "The official recruitment page lists a Research Assistant vacancy separately from trainee pathways.",
     extraSources: [
@@ -234,8 +221,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Email the PI with a brief description of relevant experimental skills and ask whether a research personnel position is available.",
-    fit: 90,
-    prestige: 90,
     strengths: [
       "Lung cancer and cell biology align closely with the research.",
       "Manuscript preparation fits the stated scientific communication environment.",
@@ -244,10 +229,6 @@ const initialLabs: Lab[] = [
       "Immunogenomics and microbiome methods are not documented.",
       "Funding and a specific position remain unconfirmed.",
     ],
-    prestigeReason:
-      "The recruitment page describes collaboration among physicians, cancer biologists and immunogenomics researchers, plus writing and journal-club development.",
-    assessment:
-      "High scientific fit for an inquiry; an invitation to contact the lab is not a confirmed job offer or vacancy.",
     evidence:
       "The page welcomes research personnel and direct PI inquiries, while describing lung-cancer, microbiome and immune-evolution projects.",
   }),
@@ -272,8 +253,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Ask the PI whether the available training routes accommodate your current enrollment and career stage; do not assume recent-graduate eligibility.",
-    fit: 80,
-    prestige: 90,
     strengths: [
       "Cancer cell models and molecular assays support experimental work.",
       "Mechanistic cancer interests align with therapeutic discovery.",
@@ -282,10 +261,6 @@ const initialLabs: Lab[] = [
       "Recent-graduate eligibility is uncertain.",
       "CRISPR screening, epigenomics and mouse models are not documented.",
     ],
-    prestigeReason:
-      "The official lab description combines therapeutic discovery, functional screens and epigenetic methods within thoracic cancer research.",
-    assessment:
-      "Good scientific overlap; a reach for the advertised training routes until eligibility is clarified.",
     evidence:
       "Official lab page describes functional-genomics research and specific graduate/postdoctoral and undergraduate/recent-graduate routes; no staff technician vacancy is established.",
   }),
@@ -313,8 +288,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Email the PI through the official Research Assistant II application instructions.",
-    fit: 75,
-    prestige: 85,
     strengths: [
       "Cell culture and molecular techniques support laboratory duties.",
       "Academic training and experimental organization provide a solid foundation.",
@@ -322,10 +295,6 @@ const initialLabs: Lab[] = [
     gaps: [
       "Protein purification and structural methods are not established in the profile.",
     ],
-    prestigeReason:
-      "The recruitment page describes access to cryo-EM, spectroscopy and other biophysical cores, with potential independent projects.",
-    assessment:
-      "A useful adjacent-field opportunity, but protein purification is a meaningful qualification gap.",
     evidence:
       "Official page advertises a Research Assistant II role, a related bachelor’s requirement and protein/molecular-biology responsibilities.",
   }),
@@ -352,8 +321,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Use the university laboratory page to identify the group and inquire through the institution about suitable student or assistant pathways.",
-    fit: 85,
-    prestige: 80,
     strengths: [
       "Clinical chart-review familiarity supports translational projects.",
       "Cell biology and patient-facing context span wet- and dry-bench work.",
@@ -362,10 +329,6 @@ const initialLabs: Lab[] = [
       "Critical-care immunology methods may require training.",
       "No paid position has been confirmed.",
     ],
-    prestigeReason:
-      "The official description links adult/pediatric critical care, immune biology and translational studies in an interdisciplinary medical-school center.",
-    assessment:
-      "Strong bridge between clinical and experimental interests; clarify the role and supervision before investing in an application.",
     evidence:
       "The official lab profile invites students and describes clinical EMR research plus wet- and dry-bench experiences, without a specific job requisition.",
   }),
@@ -392,8 +355,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Monitor official Wistar vacancies for assistant positions; the listed postdoctoral route does not match the documented career stage.",
-    fit: 55,
-    prestige: 85,
     strengths: [
       "Molecular methods and clinical research context are transferable.",
     ],
@@ -401,10 +362,6 @@ const initialLabs: Lab[] = [
       "Doctoral eligibility for the advertised role is not established.",
       "Advanced immunology and animal-model experience are not documented.",
     ],
-    prestigeReason:
-      "The official profile documents an NIH-supported, multi-institutional HIV-cure collaboration and translational immunology work.",
-    assessment:
-      "A longer-term laboratory of interest, not a verified assistant opening. The advertised postdoctoral pathway has an eligibility barrier.",
     evidence:
       "The official profile describes immunotherapy research and doctoral-level recruitment only; its staff list is not evidence of an assistant vacancy.",
   }),
@@ -428,8 +385,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Monitor the official institute careers page linked by the lab; no lab-specific application is currently verified.",
-    fit: 65,
-    prestige: 80,
     strengths: [
       "Cancer cell biology supports the biological context.",
       "Molecular assays provide an experimental starting point.",
@@ -438,10 +393,6 @@ const initialLabs: Lab[] = [
       "Computational single-cell analysis and sequencing methods are not documented.",
       "A specific suitable vacancy is unverified.",
     ],
-    prestigeReason:
-      "The official profile documents open-source genomics methods and collaborations across the Wistar/Penn/CHOP research environment.",
-    assessment:
-      "A reach toward computational genomics; prioritize groups with confirmed bench technician routes first.",
     evidence:
       "Official profile describes the research and links to general institute vacancies without confirming a lab-specific opening.",
   }),
@@ -468,8 +419,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Monitor institute careers for technical roles; the current postdoctoral advertisement is outside the established qualification profile.",
-    fit: 50,
-    prestige: 80,
     strengths: [
       "Cell culture, microscopy and molecular assays may transfer to neuronal models.",
     ],
@@ -477,10 +426,6 @@ const initialLabs: Lab[] = [
       "Neuronal culture and neurodegeneration specialization are not documented.",
       "Current advertised career stage is a barrier.",
     ],
-    prestigeReason:
-      "The lab connects cellular pathways, primary-neuron systems and therapeutic development within a dedicated neurodegenerative science institute.",
-    assessment:
-      "A broader future research environment rather than an immediately suitable confirmed vacancy.",
     evidence:
       "Official lab page describes neuronal/animal disease models and a postdoctoral vacancy; it does not advertise a technician position.",
   }),
@@ -504,8 +449,6 @@ const initialLabs: Lab[] = [
     ],
     applicationMethod:
       "Recheck the official recruitment page later. Do not treat its postdoctoral openings as technician recruitment.",
-    fit: 75,
-    prestige: 90,
     strengths: [
       "Experimental cancer biology and molecular skills offer transferable foundations.",
     ],
@@ -513,10 +456,6 @@ const initialLabs: Lab[] = [
       "Flow cytometry and intravital imaging are not documented.",
       "The technician pathway is currently closed.",
     ],
-    prestigeReason:
-      "The research page describes human immunology, advanced imaging and single-cell approaches for cancer immunotherapy.",
-    assessment:
-      "Scientifically relevant but not currently actionable for a technician application.",
     evidence:
       "The recruitment page explicitly says no research technician opening. Postdoctoral vacancies are a distinct career track.",
     extraSources: [
@@ -539,6 +478,7 @@ const catalog: Lab[] = [
   ...nationalWestLabs,
   ...nationalNortheastLabs,
   ...nationalSouthLabs,
+  ...broaderLabs,
 ];
 
 // Preserve one display label per scientific field across separately researched modules.

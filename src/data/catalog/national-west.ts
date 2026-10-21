@@ -15,8 +15,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies signaling mechanisms that drive solid tumor initiation, progression and resistance to targeted therapies.",
     website: "https://bms.ucsf.edu/people/trever-bivona-md-phd",
-    fit: 90,
-    prestige: 90,
     strengths: [
       "Cancer signaling and molecular experiments align with lung cancer research interests.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -25,10 +23,6 @@ export const nationalWestLabs: Lab[] = [
       "Drug resistance models and functional genetics require project-specific training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "An integrated genetic and cell biology program connects mechanisms of solid cancer growth with precision treatment.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-mccormick",
@@ -41,8 +35,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Investigates RAS regulation and downstream signaling in cancer and developmental disorders.",
     website: "https://mccormicklab.ucsf.edu/",
-    fit: 85,
-    prestige: 95,
     strengths: [
       "Molecular biology foundations support interest in oncogenic signaling.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -51,10 +43,6 @@ export const nationalWestLabs: Lab[] = [
       "RAS biochemistry and pathway-specific assays are additional training areas.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The group centers on mechanistic dissection of RAS, a major cancer driver, and its disease-related effector pathways.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-weaver",
@@ -67,8 +55,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies how extracellular matrix composition, organization and force regulate cell fate, mammary development and tumor progression.",
     website: "https://weaverlabsurgery.ucsf.edu/",
-    fit: 85,
-    prestige: 95,
     strengths: [
       "Cell and cancer biology overlap with tumor microenvironment research.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -77,10 +63,6 @@ export const nationalWestLabs: Lab[] = [
       "Matrix mechanics and engineered three-dimensional systems require training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The lab documents an NCI Outstanding Investigator Award and a program connecting tissue mechanics with cancer progression.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-krummel",
@@ -93,8 +75,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Uses live microscopy to study lymphocyte activation and collective immune behavior in lung disease and immune-evasive tumors.",
     website: "https://pathology.ucsf.edu/about/faculty/matthew-krummel-phd",
-    fit: 80,
-    prestige: 90,
     strengths: [
       "Lung and cancer interests intersect with immune regulation.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -103,10 +83,6 @@ export const nationalWestLabs: Lab[] = [
       "Advanced live imaging and immune-cell phenotyping need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The program combines tool development with real-time analysis of immune-cell cooperation in diseased tissues.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-karpen",
@@ -119,8 +95,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Uses Drosophila, imaging and biophysical approaches to study chromatin organization, heterochromatin and genome stability.",
     website: "https://sites.google.com/berkeley.edu/karpenlab/research",
-    fit: 75,
-    prestige: 85,
     strengths: [
       "Molecular genetics is relevant to chromatin and DNA repair questions.",
       "PCR/qPCR and experimental data analysis provide transferable foundations.",
@@ -129,10 +103,6 @@ export const nationalWestLabs: Lab[] = [
       "Drosophila genetics and condensate biophysics are specialized areas.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The group integrates organismal genetics and biophysics to test how chromatin organization protects genome function.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-raulet",
@@ -145,8 +115,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Investigates recognition and killing of cancer and infected cells by natural killer cells and T cells, including immune inhibition and desensitization.",
     website: "https://mcb.berkeley.edu/faculty/IMM/rauletd.html",
-    fit: 80,
-    prestige: 90,
     strengths: [
       "Cancer biology provides a basis for learning immune recognition mechanisms.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -155,10 +123,6 @@ export const nationalWestLabs: Lab[] = [
       "NK-cell assays and immunotherapy combinations need specialized training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The research program translates mechanistic work on NK recognition into combinations intended to enhance antitumor responses.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-doudna",
@@ -171,8 +135,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies CRISPR-associated proteins and develops genome editing, gene regulation and delivery technologies.",
     website: "https://mcb.berkeley.edu/faculty/bbs/doudnaj.html",
-    fit: 75,
-    prestige: 95,
     strengths: [
       "Molecular biology foundations are relevant to genome engineering.",
       "PCR/qPCR and experimental data analysis provide transferable foundations.",
@@ -181,10 +143,6 @@ export const nationalWestLabs: Lab[] = [
       "Protein engineering, metagenomics and delivery design extend beyond basic bench skills.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The official profile documents development of CRISPR interference and engineered Cas proteins with new functions.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-graeber",
@@ -197,8 +155,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Combines broad molecular profiling, computational analysis and targeted validation to study cancer signaling, metabolism and drug resistance.",
     website: "https://crump.ucla.edu/research/our-labs/graeber-lab",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cancer signaling and experimental validation match molecular research interests.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -207,10 +163,6 @@ export const nationalWestLabs: Lab[] = [
       "Mass spectrometry and network-scale computational analysis need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The lab integrates proteomic and metabolomic profiling with mechanistic validation and supports the UCLA Metabolomics Center.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-rothenberg",
@@ -223,8 +175,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Dissects the transcription factors and signaling networks that commit hematopoietic precursors to the T-cell lineage.",
     website: "https://rothenberglab.caltech.edu/",
-    fit: 80,
-    prestige: 90,
     strengths: [
       "Cell differentiation and molecular genetics overlap with biomedical training.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -233,10 +183,6 @@ export const nationalWestLabs: Lab[] = [
       "High-resolution developmental state analysis and T-cell precursor culture require training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The group combines developmental models and gene regulation to distinguish lineage activation from irreversible commitment.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-shaw",
@@ -249,8 +195,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies LKB1-AMPK signaling and how nutrient sensing connects metabolism, cell growth and tumor suppression.",
     website: "https://shaw.salk.edu/homepage-alternative/",
-    fit: 90,
-    prestige: 90,
     strengths: [
       "Lung cancer and molecular signaling are especially relevant research themes.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -259,10 +203,6 @@ export const nationalWestLabs: Lab[] = [
       "Genetically engineered mouse work and metabolic assays need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The program links a lung cancer tumor suppressor to an experimentally tractable metabolic signaling circuit.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-evans",
@@ -276,8 +216,6 @@ export const nationalWestLabs: Lab[] = [
       "Investigates nuclear hormone receptors and their roles in metabolic regulation, inflammation and cancer-related therapeutic targets.",
     website:
       "https://www.salk.edu/scientist/ronald-evans/?wpmobileexternal=true",
-    fit: 80,
-    prestige: 95,
     strengths: [
       "Molecular biology interests connect with receptor signaling in disease.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -286,10 +224,6 @@ export const nationalWestLabs: Lab[] = [
       "Nuclear receptor pharmacology and metabolic physiology are additional areas.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The official profile credits nuclear hormone receptor discoveries and the Lasker Basic Medical Research Award.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-kaech",
@@ -302,8 +236,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies memory T-cell differentiation and how tissue nutrients and tumor metabolism regulate protective immunity.",
     website: "https://www.salk.edu/scientist/susan-kaech/",
-    fit: 80,
-    prestige: 95,
     strengths: [
       "Molecular and cancer biology support interest in immune-cell metabolism.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -312,10 +244,6 @@ export const nationalWestLabs: Lab[] = [
       "T-cell differentiation and metabolic immune assays require training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The program identified memory T-cell precursors and gene networks; the profile records NAS election in 2024.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-karlseder",
@@ -328,8 +256,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies telomere damage, senescence and cellular crisis to understand the earliest barriers to cancer formation.",
     website: "https://www.salk.edu/scientist/jan-karlseder/",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cancer and molecular biology interests align with genome integrity research.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -338,10 +264,6 @@ export const nationalWestLabs: Lab[] = [
       "Telomere-specific methods and primary-cell senescence models need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The lab identified macroautophagy-mediated death in crisis as a tumor-suppressive mechanism.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-cheresh",
@@ -355,8 +277,6 @@ export const nationalWestLabs: Lab[] = [
       "Examines receptors and signaling pathways that promote angiogenesis, tumor invasion and metastasis to identify therapeutic strategies.",
     website:
       "https://pathology.ucsd.edu/research/labs/cheresh/about/index.html",
-    fit: 90,
-    prestige: 90,
     strengths: [
       "Cell signaling and cancer biology offer strong scientific overlap.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -365,10 +285,6 @@ export const nationalWestLabs: Lab[] = [
       "Angiogenesis models and therapeutic antibody studies require training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The official overview describes therapeutic development arising from tumor antigen antibodies and receptor signaling studies.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-houghton",
@@ -381,8 +297,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Combines human lung cancer tissue and mouse models to study neutrophil-driven immune exclusion, treatment resistance and early detection.",
     website: "https://research.fredhutch.org/houghton/en.html",
-    fit: 95,
-    prestige: 90,
     strengths: [
       "Direct lung cancer and translational molecular research overlap.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -391,10 +305,6 @@ export const nationalWestLabs: Lab[] = [
       "Human immune profiling and orthotopic cancer models require training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The group established a human-tissue and mouse platform that revealed myeloid exclusion of tumor-reactive lymphocytes.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-holland",
@@ -407,8 +317,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Develops mouse brain tumor models and imaging methods to investigate tumor biology and test therapeutic strategies.",
     website: "https://research.fredhutch.org/holland/en.html",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cancer biology and experimental research provide transferable foundations.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -417,10 +325,6 @@ export const nationalWestLabs: Lab[] = [
       "Brain tumor models and longitudinal imaging are specialized methods.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The official lab overview reports that its mouse-model work has led to clinical trials in glioma patients.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-macpherson",
@@ -433,8 +337,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Uses preclinical small-cell lung cancer models to connect gene mutations, therapeutic vulnerabilities and exceptional treatment responses.",
     website: "https://www.fredhutch.org/en/people/m/david-macpherson.html",
-    fit: 95,
-    prestige: 90,
     strengths: [
       "Small-cell lung cancer and molecular mechanisms match priority interests.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -444,10 +346,6 @@ export const nationalWestLabs: Lab[] = [
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
       "The reviewed recruitment page concerns graduate or postdoctoral routes; these are not evidence of an entry-level staff opening.",
     ],
-    prestigeReason:
-      "The group specializes in preclinical small-cell lung cancer models and linking tumor mutations to treatment response.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements. Advertised postdoctoral routes require doctoral preparation; staff-role requirements remain unknown.",
     sources: [
       {
         url: "https://www.fredhutch.org/en/people/m/david-macpherson.html",
@@ -476,8 +374,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies chromatin-dependent transcription, DUX4 and cell specification in development, muscular dystrophy and cancer.",
     website: "https://research.fredhutch.org/tapscott/en/research.html",
-    fit: 75,
-    prestige: 85,
     strengths: [
       "Molecular biology aligns with transcription and disease mechanisms.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -486,10 +382,6 @@ export const nationalWestLabs: Lab[] = [
       "Muscle disease models and DUX4 epigenetics are specialized areas.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The research connects DUX4 regulation with human disease and molecular biomarkers for muscular dystrophy.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-fong",
@@ -502,8 +394,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Uses patient samples, preclinical models and single-cell approaches to understand immunotherapy response, resistance and toxicity.",
     website: "https://research.fredhutch.org/fong/en.html",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cancer and translational research interests align with patient-oriented immune studies.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -512,10 +402,6 @@ export const nationalWestLabs: Lab[] = [
       "Single-cell multiomics and immune-response analysis need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The group explicitly integrates physicians, experimental scientists and bioinformaticians around patient-guided immunotherapy mechanisms.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-hsieh",
@@ -528,8 +414,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Investigates how altered protein synthesis drives cancer using cellular approaches, primary human samples, animal models and computation.",
     website: "https://research.fredhutch.org/hsieh/en/join-the-lab.html",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Molecular and cancer biology align with translation machinery research.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -539,10 +423,6 @@ export const nationalWestLabs: Lab[] = [
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
       "The reviewed recruitment page concerns graduate or postdoctoral routes; these are not evidence of an entry-level staff opening.",
     ],
-    prestigeReason:
-      "The group bridges protein synthesis mechanisms with clinically difficult cancers using human material and experimental models.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements. Advertised postdoctoral routes require doctoral preparation; staff-role requirements remain unknown.",
     sources: [
       {
         url: "https://research.fredhutch.org/hsieh/en/join-the-lab.html",
@@ -571,8 +451,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Develops patient-derived tumor models and computational kinase approaches to study tumor-host signaling and repurpose therapies for rare cancers.",
     website: "https://www.fredhutch.org/en/people/g/taran-gujral.html",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cancer signaling and experimental drug testing match translational interests.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -581,10 +459,6 @@ export const nationalWestLabs: Lab[] = [
       "Organotypic tissue culture and computational pharmacology need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The program combines preserved tumor architecture with systems pharmacology to identify actionable vulnerabilities in rare cancers.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-degregori",
@@ -598,8 +472,6 @@ export const nationalWestLabs: Lab[] = [
       "Studies adaptive oncogenesis and uses mouse models and functional screens to investigate leukemia and lung cancer treatment strategies.",
     website:
       "https://medschool.cuanschutz.edu/biochemistry/people/primary-faculty/degregori-james/degregori-lab/home",
-    fit: 90,
-    prestige: 90,
     strengths: [
       "Lung cancer and molecular mechanisms strongly overlap with research interests.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -608,10 +480,6 @@ export const nationalWestLabs: Lab[] = [
       "Evolutionary modeling and genome-wide functional screening require training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The lab developed an adaptive oncogenesis framework and validates genetic targets in combination with cancer therapies.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-clambey",
@@ -625,8 +493,6 @@ export const nationalWestLabs: Lab[] = [
       "Uses single-cell analysis and genetic manipulation to study antiviral and antitumor immune responses and therapeutic modulation.",
     website:
       "https://medschool.cuanschutz.edu/anesthesiology/research/basic-research-pis/clambey-lab",
-    fit: 80,
-    prestige: 85,
     strengths: [
       "Cancer and cell biology support learning immune heterogeneity.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -635,10 +501,6 @@ export const nationalWestLabs: Lab[] = [
       "Flow cytometry, mass cytometry and immune genetic models need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The lab couples host and target-cell genetics with single-cell cytometry and leadership of a cancer center flow resource.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-lydia-heasley",
@@ -652,8 +514,6 @@ export const nationalWestLabs: Lab[] = [
       "Studies how chromosome changes help yeast populations adapt to environmental stress and develop antifungal drug resistance.",
     website:
       "https://medschool.cuanschutz.edu/basic-sciences/meet-the-scientists-basic-sciences/heasley--lydia",
-    fit: 70,
-    prestige: 80,
     strengths: [
       "Molecular genetics and disease mechanisms provide transferable interests.",
       "PCR/qPCR and experimental data analysis provide transferable foundations.",
@@ -662,10 +522,6 @@ export const nationalWestLabs: Lab[] = [
       "Yeast genetics and fungal adaptation are less direct cancer matches.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The group compares defined laboratory strains and wild isolates to connect chromosome structure with adaptive behavior.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-nemenoff",
@@ -678,8 +534,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Uses orthotopic lung cancer models to study tumor-microenvironment signaling, antigen presentation and immunotherapy resistance.",
     website: "https://nemenofflab.wixsite.com/website",
-    fit: 95,
-    prestige: 85,
     strengths: [
       "Direct lung cancer and molecular tumor biology overlap.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -688,10 +542,6 @@ export const nationalWestLabs: Lab[] = [
       "Syngeneic mouse implantation and immune checkpoint studies need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The lab's orthotopic platform permits genetic tests of immune evasion and tumor-host interactions in lung cancer.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-largaespada",
@@ -705,8 +555,6 @@ export const nationalWestLabs: Lab[] = [
       "Uses Sleeping Beauty mutagenesis, CRISPR and preclinical models to identify cancer drivers and therapeutic vulnerabilities, including NF1-associated tumors.",
     website:
       "https://vetmed.umn.edu/bio/college-of-veterinary-medicine/david-largaespada",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cancer and molecular genetics align with functional gene discovery.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -715,10 +563,6 @@ export const nationalWestLabs: Lab[] = [
       "Transposon screens and immune-cell engineering require training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The official profile documents pioneering Sleeping Beauty cancer screens and an American Cancer Society Research Professor Award.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-moriarity",
@@ -732,8 +576,6 @@ export const nationalWestLabs: Lab[] = [
       "Engineers immune cells using genome editing, including natural killer cell cancer approaches and therapeutic protein production in B cells.",
     website:
       "https://med.umn.edu/pediatrics/research/research-laboratories-and-programs/moriarity-lab",
-    fit: 80,
-    prestige: 85,
     strengths: [
       "Cell and molecular biology are relevant to engineered immune therapies.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -742,10 +584,6 @@ export const nationalWestLabs: Lab[] = [
       "Primary immune-cell editing and therapeutic vector methods require training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The group develops both NK-cell cancer therapies and site-specific CRISPR engineering of B-cell therapeutic platforms.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-provenzano",
@@ -758,8 +596,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies physical and molecular tumor-stroma interactions and engineers strategies to improve drug delivery and antitumor immunity.",
     website: "https://provenzanolab.umn.edu/",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Tumor biology and experimental research overlap with microenvironment studies.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -768,10 +604,6 @@ export const nationalWestLabs: Lab[] = [
       "Nonlinear imaging, mechanics and quantitative modeling need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The lab combines engineered environments and imaging to test stromal mechanisms of metastasis and treatment resistance.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-hogquist",
@@ -785,8 +617,6 @@ export const nationalWestLabs: Lab[] = [
       "Studies thymic selection, maturation and repertoire formation to explain effective, self-tolerant T-cell responses.",
     website:
       "https://vetmed.umn.edu/bio/college-of-veterinary-medicine/kristin-hogquist",
-    fit: 75,
-    prestige: 90,
     strengths: [
       "Molecular and cell biology support learning immune development.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -795,10 +625,6 @@ export const nationalWestLabs: Lab[] = [
       "Thymic selection models and T-cell repertoire analysis require training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The profile documents physiological models of negative selection and election to the National Academy of Sciences.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-baldridge",
@@ -811,8 +637,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Investigates interactions among commensal microbes, host immunity and enteric pathogens using sequencing and mouse infection models.",
     website: "https://profiles.wustl.edu/en/persons/megan-baldridge/",
-    fit: 75,
-    prestige: 85,
     strengths: [
       "Molecular biology and disease mechanisms offer a transferable foundation.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -821,10 +645,6 @@ export const nationalWestLabs: Lab[] = [
       "Microbiome analysis and enteric infection methods need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The program combines in vivo infections with sequencing to dissect cross-kingdom regulation of intestinal immunity.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-longmore",
@@ -837,8 +657,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies tumor-environment communication and molecular pathways that enable cancer invasion and metastatic spread.",
     website: "https://oncology.wustl.edu/people/gregory-d-longmore-md/",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cancer cell biology aligns with invasion and metastasis questions.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -847,10 +665,6 @@ export const nationalWestLabs: Lab[] = [
       "Complex microenvironment models and live migration assays need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The program ties mechanistic metastasis research to molecular oncology leadership and therapeutic target development.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-denardo",
@@ -863,8 +677,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies how dendritic cells, macrophages and fibroblasts shape pancreatic cancer immunity and therapeutic response across metastatic sites.",
     website: "https://denardolabwusm.org/",
-    fit: 90,
-    prestige: 90,
     strengths: [
       "Cancer and translational biology match tumor-immune interaction research.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -873,10 +685,6 @@ export const nationalWestLabs: Lab[] = [
       "Immune phenotyping and pancreatic cancer models require training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The lab connects human samples and mouse mechanisms with pancreatic cancer SPORE projects and clinical immunotherapy studies.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-stewart",
@@ -889,8 +697,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Examines how aging stromal cells, senescence-associated secretions and fibroblasts influence immunity, dormant tumors and cancer progression.",
     website: "https://cellbiology.wustl.edu/people/stewart/",
-    fit: 85,
-    prestige: 90,
     strengths: [
       "Cell and cancer biology overlap with senescence mechanisms.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -899,10 +705,6 @@ export const nationalWestLabs: Lab[] = [
       "Stromal aging models and secretory phenotype assays need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The profile lists mechanistic work linking stromal reprogramming with metastatic breast cancer immunotherapy response.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-schreiber",
@@ -915,8 +717,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Investigates cancer immunoediting and tumor-specific neoantigens to improve therapeutic immune responses and neoantigen vaccines.",
     website: "https://pathology.wustl.edu/people/robert-schreiber-phd/",
-    fit: 85,
-    prestige: 95,
     strengths: [
       "Cancer biology provides a basis for tumor immunity research.",
       "Mammalian cell culture, PCR/qPCR, Western blotting and microscopy provide transferable experimental foundations.",
@@ -925,10 +725,6 @@ export const nationalWestLabs: Lab[] = [
       "Immunogenomics, neoantigen identification and vaccine assays need training.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The group proposed and experimentally established cancer immunoediting and pioneered therapeutic neoantigen identification.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
   researchLab({
     id: "national-west-dantas",
@@ -941,8 +737,6 @@ export const nationalWestLabs: Lab[] = [
     description:
       "Studies antibiotic resistance across microbial communities and engineers microbial functions with genomic and systems approaches.",
     website: "https://profiles.wustl.edu/en/persons/gautam-dantas/",
-    fit: 70,
-    prestige: 90,
     strengths: [
       "Molecular biology offers transferable bench foundations.",
       "PCR/qPCR and experimental data analysis provide transferable foundations.",
@@ -951,9 +745,5 @@ export const nationalWestLabs: Lab[] = [
       "Microbial ecology, metagenomics and computational analysis are less direct cancer matches.",
       "No suitable role-specific vacancy or eligibility requirements have been verified.",
     ],
-    prestigeReason:
-      "The profile describes an interdisciplinary program with extensive technician and trainee mentorship and microbial engineering applications.",
-    assessment:
-      "Research-interest assessment based on the public qualification profile and official research description; scores are broad judgments, not hiring probability. Confirm project, supervision and role requirements.",
   }),
 ];

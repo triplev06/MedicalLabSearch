@@ -13,6 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import type { Lab } from "../domain/types";
 import { combinedScore } from "../domain/ranking";
+import { fitBand } from "../domain/scoring";
 import { deadlineInfo, formatDate } from "../domain/deadlines";
 import { useAtlas } from "../app/AtlasProvider";
 import { saveLab, toggleFavorite } from "../storage/tracking";
@@ -115,14 +116,14 @@ export function ScoreControls({
           onChange={(e) => onWeight(Number(e.target.value) / 100)}
         />
         <div className="range-ends">
-          <span>Institution prestige</span>
+          <span>Prestige evidence</span>
           <span>Résumé fit</span>
         </div>
       </div>
       <div>
         <div className="label-row">
           <label htmlFor="min-fit">Minimum résumé fit</label>
-          <strong>{minFit}%</strong>
+          <strong>{minFit}/100</strong>
         </div>
         <input
           id="min-fit"
@@ -157,7 +158,7 @@ export function Scores({ lab, weight }: { lab: Lab; weight?: number }) {
         </div>
       </div>
       <div>
-        <span>Prestige</span>
+        <span>Prestige evidence</span>
         <strong>
           {lab.prestige}
           <small>/100</small>
@@ -267,6 +268,7 @@ export function LabCard({ lab, weight }: { lab: Lab; weight?: number }) {
         ))}
       </div>
       <Scores lab={lab} weight={weight} />
+      <p className="fit-category">{fitBand(lab.fit)}</p>
       {lab.eligibility === "restricted" && (
         <p className="eligibility-warning">
           Eligibility barrier · advertised doctoral track

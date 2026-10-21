@@ -54,6 +54,11 @@ export function Discover() {
     setPrivate({ status: "", favorite: false, priority: "" });
     void updatePrefs({ minFit: 50, fitWeight: 0.6 });
   }
+  function exploreAllFits() {
+    const filters = { ...f, minFit: 0 };
+    setView({ key: externalKey, filters });
+    setParams(encodeFilters(filters), { replace: true });
+  }
   const found = selectLabs(labs, f, records, now);
   const batchKey = JSON.stringify(f);
   const [batch, setBatch] = useState({ key: batchKey, count: 24 });
@@ -92,8 +97,9 @@ export function Discover() {
           <div>
             <h2>Make it personal</h2>
             <p>
-              Balance scientific fit with research environment. Scores guide
-              exploration, not acceptance odds.
+              Balance scientific fit with documented research-environment
+              evidence. Sparse documentation can lower prestige evidence; it
+              does not prove a lab is poor quality.
             </p>
           </div>
         </div>
@@ -103,6 +109,15 @@ export function Discover() {
           onWeight={(v) => change({ fitWeight: v })}
           onMinFit={(v) => change({ minFit: v })}
         />
+        <div className="explore-fit">
+          <p>
+            80+ requires strong direct evidence. Unknown role requirements limit
+            fit; adjacent fields can be useful stretches.
+          </p>
+          <Button variant="outline" size="sm" onClick={exploreAllFits}>
+            Explore all fit levels
+          </Button>
+        </div>
       </section>
       <div className="discovery-toolbar">
         <label className="search-input">
