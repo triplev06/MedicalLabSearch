@@ -1,0 +1,23 @@
+# Private development references; never publish resumes or private notes
+*.docx
+*.doc
+*.pdf
+*.rtf
+*.odt
+*resume*
+*résumé*
+*CV_*
+private/
+private-notes/
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+*.local
+.superpowers/
+.worktrees/
+*.tsbuildinfo
