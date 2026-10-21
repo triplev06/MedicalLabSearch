@@ -1,6 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 import { ScoreBreakdown } from "../components/ScoreBreakdown";
 import {
+  pathwayLabels,
+  compensationLabels,
+  audienceLabels,
+  commitmentLabel,
+} from "../domain/pathways";
+import {
   ArrowLeft,
   MapPin,
   ShieldCheck,
@@ -49,6 +55,26 @@ export function LabDetail() {
       />
       <div className="detail-layout">
         <div className="detail-main">
+          <section className="panel detail-section">
+            <p className="eyebrow">ENTRY ROUTE EVIDENCE</p>
+            <h2>{pathwayLabels[lab.pathway.kind]}</h2>
+            <p>
+              <strong>{compensationLabels[lab.pathway.compensation]}</strong> ·{" "}
+              {audienceLabels[lab.pathway.audience]}
+            </p>
+            <p>{lab.pathway.evidence}</p>
+            <p className="muted small">{commitmentLabel(lab)}</p>
+            {lab.pathway.sourceUrl && (
+              <ExternalLink href={lab.pathway.sourceUrl}>
+                Official entry-route information
+              </ExternalLink>
+            )}
+            <p className="muted small">
+              A route to apply or inquire is not an acceptance guarantee.
+              Confirm current vacancies, applicant restrictions, work
+              authorization and the required time commitment.
+            </p>
+          </section>
           <section className="panel detail-section">
             <Availability lab={lab} />
             <h2>Science with a purpose</h2>

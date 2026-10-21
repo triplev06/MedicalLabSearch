@@ -8,12 +8,18 @@ import { regionalReviews } from "./regional";
 import { westChicagoReviews } from "./west-chicago";
 import { eastSouthReviews } from "./east-south";
 import { broaderReviews } from "./broader";
+import { accessibleEastReviews } from "./accessible-east";
+import { accessibleCentralReviews } from "./accessible-central";
+import { accessibleWestSouthReviews } from "./accessible-west-south";
 export const scoreReviews: Record<string, ScoreReview> = {
   ...initialReviews,
   ...regionalReviews,
   ...westChicagoReviews,
   ...eastSouthReviews,
   ...broaderReviews,
+  ...accessibleEastReviews,
+  ...accessibleCentralReviews,
+  ...accessibleWestSouthReviews,
 };
 export function reviewFor(id: string): ScoreReview {
   const review = scoreReviews[id];

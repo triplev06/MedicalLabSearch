@@ -10,13 +10,18 @@ import { deadlineInfo } from "../domain/deadlines";
 import { labs } from "../data/labs";
 
 describe("recommendation and combined filters", () => {
+  it("makes default ranking values explicit so saved preferences cannot reinterpret a bookmark", () => {
+    const params = encodeFilters(defaultFilters);
+    expect(params.get("minFit")).toBe("50");
+    expect(params.get("fitWeight")).toBe("0.6");
+  });
   it("weights fit and prestige without implying probability", () => {
     expect(combinedScore({ fit: 80, prestige: 90 }, 0.6)).toBe(84);
     expect(combinedScore({ fit: 80, prestige: 90 }, 1)).toBe(80);
   });
   it("combines states, institution, fit and availability", () => {
     const found = selectLabs(
-      labs,
+      labs.slice(0, 201),
       {
         ...defaultFilters,
         states: ["MA", "WA"],
@@ -93,7 +98,16 @@ describe("calendar deadlines", () => {
       "Deadline unknown",
     );
     expect(
-      selectLabs(labs, { ...defaultFilters, deadlineWindow: "7" }, [], now),
+      selectLabs(
+        [
+          { ...labs[0], deadline: { kind: "rolling" } },
+          { ...labs[1], deadline: { kind: "unknown" } },
+          { ...labs[2], deadline: { kind: "fixed", date: "2026-11-30" } },
+        ],
+        { ...defaultFilters, deadlineWindow: "7" },
+        [],
+        now,
+      ),
     ).toEqual([]);
   });
   it("handles leap days and daylight saving boundaries", () => {

@@ -6,6 +6,12 @@ import { combinedScore } from "../domain/ranking";
 import { fitBand } from "../domain/scoring";
 import { reviewFor } from "../data/scoring";
 import {
+  pathwayLabels,
+  compensationLabels,
+  audienceLabels,
+  commitmentLabel,
+} from "../domain/pathways";
+import {
   PageHeading,
   Empty,
   DeadlineBadge,
@@ -19,6 +25,16 @@ export function Compare() {
       .map((id) => labs.find((l) => l.id === id))
       .filter((l): l is Lab => !!l);
   const rows: { label: string; render: (l: Lab) => React.ReactNode }[] = [
+    { label: "Entry route", render: (l) => pathwayLabels[l.pathway.kind] },
+    { label: "Time commitment", render: commitmentLabel },
+    {
+      label: "Compensation",
+      render: (l) => compensationLabels[l.pathway.compensation],
+    },
+    {
+      label: "Applicant restrictions",
+      render: (l) => audienceLabels[l.pathway.audience],
+    },
     { label: "Fit category", render: (l) => fitBand(l.fit) },
     { label: "Fit evidence", render: (l) => reviewFor(l.id).fitEvidence },
     {

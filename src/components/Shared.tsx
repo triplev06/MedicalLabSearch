@@ -14,6 +14,11 @@ import { Link } from "react-router-dom";
 import type { Lab } from "../domain/types";
 import { combinedScore } from "../domain/ranking";
 import { fitBand } from "../domain/scoring";
+import {
+  pathwayLabels,
+  compensationLabels,
+  audienceLabels,
+} from "../domain/pathways";
 import { deadlineInfo, formatDate } from "../domain/deadlines";
 import { useAtlas } from "../app/AtlasProvider";
 import { saveLab, toggleFavorite } from "../storage/tracking";
@@ -22,7 +27,7 @@ export const availabilityLabels = {
   open: "Confirmed opening",
   inquiries: "Accepting inquiries",
   interest: "Lab of interest",
-  closed: "Not recruiting technicians",
+  closed: "Closed / no suitable opening",
 };
 export function ExternalLink({
   href,
@@ -269,6 +274,15 @@ export function LabCard({ lab, weight }: { lab: Lab; weight?: number }) {
       </div>
       <Scores lab={lab} weight={weight} />
       <p className="fit-category">{fitBand(lab.fit)}</p>
+      {lab.pathway.kind !== "unverified" && (
+        <p className="pathway-badge">
+          <strong>{compensationLabels[lab.pathway.compensation]}</strong> ·{" "}
+          {pathwayLabels[lab.pathway.kind]}
+          {lab.pathway.audience !== "general" && (
+            <span>{audienceLabels[lab.pathway.audience]}</span>
+          )}
+        </p>
+      )}
       {lab.eligibility === "restricted" && (
         <p className="eligibility-warning">
           Eligibility barrier · advertised doctoral track

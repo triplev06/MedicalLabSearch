@@ -8,6 +8,9 @@ import { nationalNortheastLabs } from "./catalog/national-northeast";
 import { nationalSouthLabs } from "./catalog/national-south";
 import { scoredFields } from "./scoring";
 import { broaderLabs } from "./catalog/broader";
+import { accessibleEastLabs } from "./catalog/accessible-east";
+import { accessibleCentralLabs } from "./catalog/accessible-central";
+import { accessibleWestSouthLabs } from "./catalog/accessible-west-south";
 
 const md =
   "https://www.mdanderson.org/research/departments-labs-institutes/labs/";
@@ -26,8 +29,9 @@ type Entry = Omit<
   | "prestige"
   | "assessment"
   | "prestigeReason"
+  | "pathway"
 > &
-  Partial<Pick<Lab, keyof typeof common>> & {
+  Partial<Pick<Lab, keyof typeof common | "pathway">> & {
     evidence: string;
     extraSources?: Lab["sources"];
   };
@@ -479,6 +483,9 @@ const catalog: Lab[] = [
   ...nationalNortheastLabs,
   ...nationalSouthLabs,
   ...broaderLabs,
+  ...accessibleEastLabs,
+  ...accessibleCentralLabs,
+  ...accessibleWestSouthLabs,
 ];
 
 // Preserve one display label per scientific field across separately researched modules.

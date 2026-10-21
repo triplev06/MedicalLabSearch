@@ -183,8 +183,9 @@ export function Dashboard() {
             <div>
               <strong>No verified upcoming deadlines</strong>
               <p>
-                The current catalog has no confirmed fixed deadlines. Open roles
-                may close without notice; check official pages before applying.
+                No verified fixed deadlines fall within the next 60 days. Open
+                roles may close without notice; check official pages before
+                applying.
               </p>
             </div>
             <span className="subtle-badge">No dates invented</span>

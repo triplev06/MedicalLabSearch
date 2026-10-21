@@ -20,6 +20,11 @@ import {
 } from "../components/Shared";
 import { Button } from "../components/ui/button";
 import { statuses } from "../domain/schemas";
+import {
+  pathwayLabels,
+  compensationLabels,
+  audienceLabels,
+} from "../domain/pathways";
 export function Discover() {
   const { records, prefs, now, updatePrefs } = useAtlas(),
     [params, setParams] = useSearchParams(),
@@ -50,12 +55,26 @@ export function Discover() {
   }
   function resetFilters() {
     setView({ key: externalKey, filters: defaultFilters });
-    setParams({});
+    setParams(encodeFilters(defaultFilters));
     setPrivate({ status: "", favorite: false, priority: "" });
     void updatePrefs({ minFit: 50, fitWeight: 0.6 });
   }
   function exploreAllFits() {
     const filters = { ...f, minFit: 0 };
+    setView({ key: externalKey, filters });
+    setParams(encodeFilters(filters), { replace: true });
+  }
+  function firstResearchRole() {
+    const filters = {
+      ...f,
+      pathway: "documented",
+      audience: "external",
+      commitment: "up-to-year",
+      hours: "full-or-unknown",
+      sort: "entry-route" as const,
+      availability: "",
+      experience: "",
+    };
     setView({ key: externalKey, filters });
     setParams(encodeFilters(filters), { replace: true });
   }
@@ -91,6 +110,21 @@ export function Discover() {
           </Button>
         ))}
       </nav>
+      <section className="panel entry-pathway-panel">
+        <div>
+          <h2>A practical first research role</h2>
+          <p>
+            Browse documented entry routes, with paid staff roles first. Student
+            and volunteer routes remain clearly labeled; institution-only
+            programs and documented commitments over twelve months are excluded
+            from this view. Unspecified hours and durations still need
+            confirmation. No lab is a guaranteed acceptance.
+          </p>
+        </div>
+        <Button variant="outline" onClick={firstResearchRole}>
+          First research role
+        </Button>
+      </section>
       <section className="panel ranking-panel">
         <div className="panel-intro">
           <SlidersHorizontal size={19} />
@@ -156,6 +190,7 @@ export function Discover() {
             }
           >
             <option value="recommended">Recommended overall</option>
+            <option value="entry-route">Entry route: paid first</option>
             <option value="fit">Highest résumé fit</option>
             <option value="prestige">Highest prestige</option>
             <option value="deadline-asc">Deadline: soonest first</option>
@@ -246,6 +281,64 @@ export function Discover() {
             values={Object.entries(availabilityLabels).map(
               ([value, label]) => ({ value, label }),
             )}
+          />
+          <FilterSelect
+            label="Entry pathway"
+            value={f.pathway}
+            onChange={(pathway) => change({ pathway })}
+            values={[
+              { value: "documented", label: "All documented routes" },
+              ...Object.entries(pathwayLabels).map(([value, label]) => ({
+                value,
+                label,
+              })),
+            ]}
+          />
+          <FilterSelect
+            label="Compensation"
+            value={f.compensation}
+            onChange={(compensation) => change({ compensation })}
+            values={Object.entries(compensationLabels).map(
+              ([value, label]) => ({ value, label }),
+            )}
+          />
+          <FilterSelect
+            label="Applicant audience"
+            value={f.audience}
+            onChange={(audience) => change({ audience })}
+            values={[
+              { value: "external", label: "Exclude institution-only routes" },
+              ...Object.entries(audienceLabels).map(([value, label]) => ({
+                value,
+                label,
+              })),
+            ]}
+          />
+          <FilterSelect
+            label="Minimum commitment"
+            value={f.commitment}
+            onChange={(commitment) => change({ commitment })}
+            values={[
+              { value: "up-to-year", label: "Up to 12 months or unspecified" },
+              { value: "known-up-to-year", label: "Verified up to 12 months" },
+              { value: "longer", label: "More than 12 months" },
+              { value: "unknown", label: "Commitment unspecified" },
+            ]}
+          />
+          <FilterSelect
+            label="Working hours"
+            value={f.hours}
+            onChange={(hours) => change({ hours })}
+            values={[
+              {
+                value: "full-or-unknown",
+                label: "Exclude documented part-time roles",
+              },
+              { value: "full-time", label: "Verified full time" },
+              { value: "part-time", label: "Part time" },
+              { value: "flexible", label: "Flexible hours" },
+              { value: "unknown", label: "Hours unspecified" },
+            ]}
           />
           <FilterSelect
             label="Deadline window"

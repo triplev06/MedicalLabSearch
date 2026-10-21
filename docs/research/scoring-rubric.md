@@ -18,7 +18,7 @@ The previous catalog assigned at least 80 fit points to 166/189 labs, while 126/
 
 Each criterion contributes `level / 4 × weight`. The sum rounds to the nearest five-point band; ties round upward. Evidence caps apply after rounding:
 
-- Role prerequisites that are not fully documented (`requirementsVerified=false`, the default) cap fit at **75**, even if an inquiry invitation or technician title exists. Only explicitly documented entry requirements receive affirmative verification; current verified flags are Meyerson and Bernstein. This flag verifies the information available, not employment authorization or an acceptance outcome.
+- Role prerequisites that are not fully documented (`requirementsVerified=false`, the default) cap fit at **75**, even if an inquiry invitation or technician title exists. Only explicitly documented entry requirements receive affirmative verification in each individual review. This flag verifies the information available, not employment authorization or an acceptance outcome.
 - Level 1–2 experience evidence also caps fit at **75**.
 - Generic-only core methods or indirect interests cap fit at **55**.
 - A known unmet academic or advertised-route prerequisite caps fit at **40**, with the eligibility warning still displayed separately.
@@ -43,6 +43,6 @@ Institutional brand alone earns no extra points. Level 1 impact requires an actu
 
 Twelve additional official-source groups add Georgia State, Temple, UMBC, UNLV, VCU, UNC Charlotte, UT San Antonio, Marquette, Wayne State and UMKC. Topics include antiviral discovery, marine and microbial ecology, structural virology, developmental biology, kidney physiology, neural regeneration, rehabilitation, epigenetics and computational evolution. They are research leads with unknown vacancies, not invented entry-level jobs.
 
-The catalog now contains **201 entries across 20 states**. Current fit spans **25–85**, with **two at 80+**; prestige evidence spans **20–75**. These are observed consequences of criterion review, not imposed bounds or a desired histogram. Existing IDs and private tracker/backup data remain compatible. All-fit discovery uses `minFit=0`; its explicit button preserves the saved threshold rather than silently migrating preferences.
+The current stable checkpoint contains **366 entries across 33 states**, including 165 entry-pathway additions toward the requested 300. Current fit spans **25–85**, with **three at 80+**; prestige evidence spans **20–75**. These are observed consequences of criterion review, not imposed bounds or a desired histogram. Existing IDs and private tracker/backup data remain compatible. All-fit discovery uses `minFit=0`; its explicit button preserves the saved threshold rather than silently migrating preferences.
 
 Profiles show the criterion levels, weighted contributions, before-rounding fit, caps, evidence anchors, strengths/gaps and official sources. Comparison includes fit categories and explanations. The broad ordinal thresholds remain editorial judgments; new role requirements, methods or outcome evidence should trigger a reviewed update rather than automatic keyword counting.

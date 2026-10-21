@@ -1,0 +1,297 @@
+import type { ScoreReview } from "../../domain/scoring";
+
+function review(
+  f: [number, number, number, number, number],
+  p: [number, number, number, number],
+  fitEvidence: string,
+  prestigeEvidence: string,
+): ScoreReview {
+  const [alignment, methods, preparation, level, transfer] = f;
+  const [impact, resources, mentorship, collaboration] = p;
+  return {
+    fit: { alignment, methods, preparation, level, transfer },
+    prestige: { impact, resources, mentorship, collaboration },
+    fitEvidence,
+    prestigeEvidence,
+    requirementsVerified: false,
+  };
+}
+
+export const accessibleCentralReviews: Record<string, ScoreReview> = {
+  "wisc-ehrlich": review(
+    [2, 1, 2, 3, 2],
+    [2, 3, 2, 2],
+    "Microscopy and experimental recording offer partial transfer; fish care, neural recording and computational modeling are gaps. Full-time staff inquiries explicitly include limited experience, but pay and minimum qualifications remain unverified.",
+    "Work on movement initiation and balance documents a specific contribution. Whole-brain imaging and electrophysiology provide specialized tools; explicit training of limited-experience staff supports mentoring access without established long-term outcomes.",
+  ),
+  "wustl-runnan-cao": review(
+    [2, 0, 1, 2, 2],
+    [2, 3, 1, 3],
+    "Clinical documentation and data organization may transfer; neuroimaging, electrophysiology and scientific programming require substantial training. General staff inquiries exist, with no suitable current role prerequisites verified.",
+    "Human single-neuron research documents contributions to object and face coding. Multimodal clinical recording and imaging support specialized collaborative resources; general staff contact does not establish structured mentoring outcomes.",
+  ),
+  "umich-emmer": review(
+    [3, 2, 2, 3, 3],
+    [2, 3, 1, 2],
+    "Molecular disease questions, culture and assays overlap; functional screens and computational genomics need training. Hiring inquiries at all levels are explicit, with assistant requirements and duration unknown.",
+    "Published functional interrogation of lipid uptake and specialized CRISPR systems support contributions and resources. General hiring provides access without verified structured mentoring outcomes.",
+  ),
+  "umich-mhail": review(
+    [2, 0, 2, 2, 3],
+    [1, 3, 1, 3],
+    "Clinical documentation and research communication transfer; psychiatric assessment and adaptive-trial analysis require training. Volunteer recruitment is explicit, but the advertised student hours are part-time and full-time capacity is unverified.",
+    "Federally funded adaptive clinical trials and mobile assessment establish specialized resources and multidisciplinary collaboration. Volunteer recruitment is documented without independently verified mentoring outcomes.",
+  ),
+  "wisc-cirelli-tononi": review(
+    [2, 2, 2, 3, 3],
+    [3, 3, 1, 3],
+    "Molecular assays and microscopy provide partial overlap; sleep recording, animal work and advanced analysis are gaps. A bachelor's-level inquiry form accommodates paid or unpaid preferences and up to 40 hours, without a verified vacancy.",
+    "The joint synaptic-homeostasis research program documents specific contributions across molecular, imaging and electrophysiological approaches. Post-baccalaureate inquiry access is explicit, while structured mentoring outcomes are unverified.",
+  ),
+  "wisc-jacob-meyer": review(
+    [2, 0, 2, 3, 3],
+    [1, 2, 1, 3],
+    "Clinical documentation, data handling and writing transfer; exercise-intervention methods need training. Explicit future technician/coordinator inquiries exist, but no specific current role or full-time duration is verified.",
+    "A funded randomized resistance-exercise study with psychiatry and family-medicine collaborators supports clinical resources and interdisciplinary work. Future staff access is explicit without verified mentoring outcomes or completed major contribution impact.",
+  ),
+  "wisc-denu": review(
+    [3, 2, 2, 3, 3],
+    [2, 3, 2, 3],
+    "Cancer molecular interests, culture and assays overlap; epigenomics, single-cell analysis and mouse tumor methods remain gaps. A paid full-time internship is documented, but degree equivalency, prior research depth and commitment length need confirmation.",
+    "Specific NFI and YAP-TEAD dependencies in sarcoma document contributions. Patient-derived and murine models, multi-omics and a national sarcoma SPORE connection support specialized resources and collaborative translation. The lab describes individualized trainee development.",
+  ),
+  "wisc-gamm": review(
+    [2, 2, 3, 3, 3],
+    [2, 3, 2, 3],
+    "Mammalian culture, staining and microscopy provide a relevant foundation; pluripotent differentiation and retinal systems require training. Broad biology-degree preparation supports the listed internship; a paid full-time route is explicit with duration unverified.",
+    "Creation of functional retinal tissues documents a specific contribution. Human stem-cell disease models, transplantation and collaborative therapeutic development support specialized resources and translation. Structured additional training is explicit without inferred long-term outcomes.",
+  ),
+  "wisc-kang": review(
+    [2, 2, 3, 4, 3],
+    [1, 3, 2, 2],
+    "Molecular assays, imaging and experimental recording overlap; zebrafish husbandry and regeneration methods need training. Broad bachelor's preparation and an explicit paid full-time internship support entry readiness, while duration remains unverified.",
+    "Genetic zebrafish regeneration systems establish specialized resources and combined molecular/developmental approaches. The role provides project, writing and presentation training; major scientific impact is not inferred from institutional affiliation.",
+  ),
+  "uc-patra": review(
+    [3, 3, 3, 4, 3],
+    [1, 3, 2, 2],
+    "Cancer-cell culture, PCR, extraction, western blotting and data recording directly match several duties. A biological-sciences bachelor's is required and prior research/animals are additional qualifications; organoids, cloning and mouse work need training. Full-time paid role is documented, but commitment length remains unknown.",
+    "Cancer organoids and molecular tumor models establish specialized resources. The role explicitly provides research exposure and potential publication contribution, supporting training; major impact is not inferred from an award or affiliation.",
+  ),
+  "uc-joshua-gross": review(
+    [1, 2, 2, 3, 3],
+    [1, 3, 2, 2],
+    "PCR, microscopy and documentation overlap; the evolutionary question is adjacent and fish husbandry, sequencing and supervising trainees remain gaps. A bachelor's-level paid full-time role is explicit, with one-year appointment structure after six-month probation; confirm suitability and exact term.",
+    "Cavefish models spanning genetic, sensory and craniofacial biology establish specialized resources and interdisciplinary work. Explicit experimental training and trainee development support mentoring, without inferred major scientific impact.",
+  ),
+  "uc-skuli": review(
+    [3, 3, 2, 2, 3],
+    [2, 3, 2, 3],
+    "Cancer interests, culture, PCR/qPCR, extraction, western blotting and recording match several duties. Required one-year direct lab experience and flow-cytometry/cloning preparation are not fully verified; training is provided as needed. The current paid role is part-time.",
+    "Specific metabolic resistance findings in TP53-mutant AML document contributions. Longitudinal patient samples, multi-omics and bone-marrow research support specialized translational resources and collaborative methods. Assistant training is described.",
+  ),
+  "unmc-iqbal": review(
+    [3, 2, 2, 3, 3],
+    [2, 3, 1, 3],
+    "Cancer molecular assays, sample records and microscopy provide a foundation; advanced profiling, mass cytometry and animal models need training. Staff CV inquiries are explicit, with current assistant prerequisites, pay and commitment unverified.",
+    "Diagnostic and prognostic lymphoma signatures document specific contributions. Patient biospecimens, genomic profiling and named international lymphoma consortia support specialized resources and multi-institutional collaboration; assistant mentoring outcomes are unverified.",
+  ),
+  "umn-bhairab-singh": review(
+    [2, 2, 2, 3, 3],
+    [2, 3, 1, 2],
+    "Culture, molecular assays and imaging overlap partly; cardiac iPSCs, CRISPR and engineered tissues require training. An explicit volunteer opportunity exists, without verified staff eligibility or full-time terms.",
+    "Specific cardiomyocyte maturation and disease-model studies document contributions. Stem-cell engineering and cryopreservation models establish specialized resources and multidisciplinary work; volunteer access alone provides limited mentoring evidence.",
+  ),
+  "uky-saurabh-chattopadhyay": review(
+    [2, 3, 2, 2, 3],
+    [1, 3, 1, 2],
+    "Mammalian culture, PCR, western blotting and laboratory recording match several duties. BS and one year related experience are required; whether prior experience meets that year is not verified. Animal and infection procedures remain training gaps despite an open paid staff route.",
+    "Engineered cells, genetic/drug screens and mouse antiviral models establish specialized resources and multidisciplinary methods. Technician support access is explicit, but major contribution impact and structured mentoring outcomes are unverified.",
+  ),
+  "rush-held": review(
+    [2, 1, 2, 3, 3],
+    [1, 3, 2, 2],
+    "Clinical documentation, communication and literature work transfer; trauma assessment, trial procedures and predictive modeling need training. Employment or volunteer CV inquiries are explicit, with funded assistant capacity and duration unknown.",
+    "Randomized PTSD trials and clinical treatment access support specialized resources and interdisciplinary analysis. Named assistant alumni progressing into doctoral training support mentoring evidence, without inferred universal outcomes.",
+  ),
+  "mcw-liang-liang": review(
+    [2, 1, 2, 3, 3],
+    [2, 3, 1, 3],
+    "Biofluid handling concepts, molecular recording and writing transfer; metabolomics and multi-omics analysis need training. Technician recruitment is explicit but a strong research background is sought and detailed eligibility is unverified.",
+    "Development of a pregnancy metabolic clock documents a specific contribution. Biofluid molecular profiling and the described clinician, epidemiology and computational team support specialized resources and collaborative translation.",
+  ),
+  "mcw-scalabrino": review(
+    [2, 2, 2, 3, 3],
+    [2, 3, 1, 2],
+    "Microscopy and molecular assays overlap; retinal preparations, AAVs, electrophysiology and animals need training. Broad bachelor's-level technician inquiries are explicitly invited, without verified pay or commitment.",
+    "Specific retinal gene-therapy studies and engineered molecular tools document contributions and specialized models. Technician access and multidisciplinary approaches are explicit; sustained mentoring outcomes are unverified.",
+  ),
+  "mcw-jing-dong": review(
+    [3, 1, 2, 3, 3],
+    [2, 3, 1, 3],
+    "Cancer interests and clinical recording align; epidemiological genomics, NGS and risk modeling require training. A medical-student research invitation is explicit, with schedule, compensation and project eligibility unknown.",
+    "Cancer susceptibility loci, risk scores and transplant biomarker studies document contributions. Cohort and genomic resources and multicenter research support specialized infrastructure and collaboration without inferred prestige from affiliation.",
+  ),
+  "mcw-hu-yang": review(
+    [3, 2, 2, 3, 3],
+    [1, 2, 1, 2],
+    "Cancer and molecular therapeutics align, with culture and assay foundations; biomaterials and formulation engineering need training. Research-professional employment inquiries are explicit but a specific vacancy and duration are unverified.",
+    "Targeted delivery and theranostic biomaterial work establish specialized methods and an interdisciplinary program. Inquiry access alone does not establish structured mentoring or major scientific impact.",
+  ),
+  "missouri-olga-baker": review(
+    [2, 2, 2, 1, 3],
+    [1, 3, 2, 2],
+    "Culture and molecular assays overlap with tissue-repair work; gland physiology and hydrogel methods need training. Technician inquiries are explicit, but a combined PhD preference leaves bachelor's-level suitability uncertain rather than verified.",
+    "Regenerative cell sheets, hydrogels and disease-linked gland work establish specialized models and interdisciplinary methods. Feedback, writing and presentation mentoring are described; major scientific impact is unverified.",
+  ),
+  "missouri-subramanian": review(
+    [2, 2, 2, 1, 3],
+    [1, 3, 2, 2],
+    "Molecular assays and microscopy offer a foundation; vascular physiology and genetic mice need training. The explicit technician route shares an ambiguous PhD preference, so entry-level suitability and duration must be confirmed.",
+    "Genetic aneurysm models and cellular matrix research document specialized resources and interdisciplinary mechanisms. Extensive feedback and scientific-presentation mentoring are described without inferred long-term outcomes.",
+  ),
+  "wisc-guassi-moreira": review(
+    [2, 0, 1, 3, 2],
+    [2, 3, 1, 2],
+    "Clinical context and data recording transfer partly; fMRI, NLP and advanced computational methods are not demonstrated. Only a non-student volunteer inquiry is relevant; no staff hiring is current and enrollment restrictions need clarification.",
+    "Specific social-value and emotion-regulation studies document contributions. fMRI, momentary assessments and consortium datasets support specialized resources and multidisciplinary work; volunteer access alone does not establish structured mentoring.",
+  ),
+  "indiana-lorenzo-luaces": review(
+    [2, 1, 2, 3, 3],
+    [2, 2, 2, 2],
+    "Clinical recording and writing transfer to depression research; advanced statistics, machine learning and psychotherapy assessment need training. Occasional post-baccalaureate RA applications are explicit, generally volunteer first; full-time capacity and later pay are unverified.",
+    "Specific work on depression heterogeneity and treatment prediction documents contributions and specialized analytical methods. Research-assistant development is described without independently verified long-term outcomes.",
+  ),
+  "vanderbilt-olatunji": review(
+    [2, 1, 2, 3, 3],
+    [1, 2, 2, 2],
+    "Clinical documentation and scientific communication transfer; clinical assessment and experimental psychopathology require training. An explicit volunteer route offers study and analysis experience, but advertised hours are part-time and do not establish a full-time placement.",
+    "Clinical and experimental anxiety research supports specialized methods and a translational framework. Volunteer assistants work closely with researchers and may present findings, supporting mentoring beyond simple contact access.",
+  ),
+  "umn-richard-lee": review(
+    [2, 1, 2, 3, 3],
+    [2, 2, 2, 3],
+    "Clinical records, writing and data organization transfer; cultural measurement, qualitative coding and longitudinal statistics require training. Community research volunteers are explicitly invited, with current capacity and full-time schedule unverified.",
+    "Development of social-connectedness measures and longitudinal adoption research document contributions. Named national and international collaborations and regular research meetings support collaboration and mentoring, without assumed individual outcomes.",
+  ),
+  "mcw-sheahan": review(
+    [2, 2, 2, 3, 3],
+    [2, 3, 1, 2],
+    "Molecular labeling, microscopy and recording offer a foundation; rodent behavior, neural preparations and advanced imaging need training. Pre-medical/graduate technician inquiries are explicit but schedule and pay remain unknown.",
+    "A specific itch-relay discovery and specialized imaging, behavioral and tissue approaches support contributions and resources. Technician access is explicit; structured mentoring outcomes are unverified.",
+  ),
+  "vanderbilt-sando": review(
+    [2, 2, 2, 3, 3],
+    [1, 3, 1, 2],
+    "Molecular biology and imaging overlap with synaptic cell research; electrophysiology, neural preparations and animals need training. Technician applications are explicitly invited, with staff prerequisites and commitment unknown.",
+    "Synaptic structural, imaging and physiological approaches establish specialized models and interdisciplinary methods. Recruitment provides access, while major impact and sustained mentoring outcomes are not inferred from affiliation.",
+  ),
+  "umich-kwan": review(
+    [2, 1, 2, 3, 2],
+    [1, 2, 1, 2],
+    "Molecular recording and biological preparation transfer; chromatin, functional genomics and cortical circuit methods require training. Technician recruitment is explicit, but funded positions do not establish applicant-specific salary or duration.",
+    "Chromatin regulation and functional-genomics approaches document specialized methods and multidisciplinary questions. Technician access is explicit; major impact and structured mentoring outcomes remain unverified.",
+  ),
+  "vanderbilt-meltzer": review(
+    [2, 2, 2, 3, 3],
+    [1, 3, 1, 2],
+    "Molecular assays, microscopy and scientific documentation overlap partly; mouse genetics, neural physiology and sequencing remain gaps. A general technician invitation is explicit, with current terms unverified.",
+    "Genetic, anatomical and physiological sensory-circuit models establish specialized resources and interdisciplinary work. Technician recruitment supports access without automatic brand or fellowship credit.",
+  ),
+  "toledo-imam": review(
+    [3, 2, 2, 3, 3],
+    [1, 3, 2, 2],
+    "Molecular assays and clinical records provide a foundation for immune and endocrine research; CAR-Treg engineering and immune-cell methods need training. A medical-student inquiry is explicit, but funded full-time terms are unverified.",
+    "Named CAR-Treg projects and clinical assay studies establish specialized translational resources. Medical-student mentoring is documented; project funding alone does not establish scientific impact.",
+  ),
+  "indiana-renzhi-han": review(
+    [2, 2, 2, 3, 3],
+    [3, 3, 1, 2],
+    "Culture and molecular assays overlap; AAV, genome editing, hiPSCs and animals require training. Technician CV inquiries are welcome, but the older recruitment page does not verify a current vacancy or 6–12-month terms.",
+    "Multiple specific gene-delivery and editing contributions in muscular-dystrophy models are documented. Cell and animal disease models support specialized resources; inquiry access alone does not establish structured mentoring.",
+  ),
+  "uwm-larson": review(
+    [2, 1, 2, 3, 3],
+    [1, 2, 2, 2],
+    "Clinical documentation and communication transfer to trauma research; neuroscience assessments and specialist analysis require training. Post-baccalaureate and volunteer applications are invited, with schedule and pay unverified.",
+    "An active trauma and resilience program and work with clinical populations support research resources and multidisciplinary questions. Explicit trainee support is described, without verified long-term outcomes.",
+  ),
+  "umich-parkos-nusrat-brazil": review(
+    [2, 3, 2, 3, 3],
+    [1, 3, 2, 2],
+    "Culture, PCR, western blotting and staining match several advertised technician duties. Mouse work and barrier-specific methods need training; an older two-year commitment may make a shorter placement unsuitable and must be clarified.",
+    "Human tissues, organoids, molecular imaging and animal inflammation models document specialized resources. Technician training is explicit, but major impact and sustained mentoring outcomes are not inferred from institutional affiliation.",
+  ),
+  "osu-ingiosi": review(
+    [2, 1, 2, 3, 2],
+    [1, 3, 1, 2],
+    "Molecular assays and scientific recording transfer partly; EEG, animal work and in vivo imaging need training. The lab welcomes technician inquiries but explicitly has no current technician opening posted.",
+    "Astrocyte imaging and sleep physiology establish specialized models and multidisciplinary methods. Future inquiry access provides limited mentoring evidence; scientific impact is not established by research aims.",
+  ),
+  "uc-chen-gao": review(
+    [2, 2, 2, 3, 3],
+    [1, 2, 2, 2],
+    "Molecular and culture skills overlap with cardiac RNA research; physiology and specialist RNA analysis need training. Assistant inquiries are explicit, with current funded role requirements unverified.",
+    "Molecular cardiac-remodeling projects and stated assistant training support specialized methods and mentoring access. Major completed contributions and independent mentoring outcomes remain unverified.",
+  ),
+  "cchmc-xue": review(
+    [2, 2, 2, 3, 3],
+    [1, 3, 1, 2],
+    "Culture, molecular assays and microscopy offer a foundation; stem-cell organoids, microfluidics and bioprinting are substantial gaps. Assistant CV inquiries are explicit but role prerequisites are unspecified.",
+    "Organoid engineering, microfluidics and cell-mechanics tools establish specialized resources and interdisciplinary work. Recruiting assistants supports inquiry access, not verified structured mentoring outcomes.",
+  ),
+  "cchmc-pestian": review(
+    [2, 0, 1, 3, 3],
+    [1, 3, 1, 2],
+    "Clinical records, writing and data handling transfer; NLP and machine-learning workflows are not demonstrated. An explicit volunteer invitation exists, with duties and full-time capacity unverified.",
+    "Clinical epilepsy and psychiatric datasets and computational approaches support specialized clinical resources. Volunteer inquiry is explicit, while structured mentoring and major contribution impact are unverified.",
+  ),
+  "uky-badour": review(
+    [2, 1, 2, 3, 3],
+    [1, 2, 2, 2],
+    "Clinical documentation and communication transfer; trauma assessment and intervention analysis require training. Bachelor's graduates in psychology or related fields may inquire; degree relevance, pay and schedule need confirmation.",
+    "Clinical trauma and substance-use studies support specialized research methods and multidisciplinary questions. A post-baccalaureate assistant route provides mentoring access without established long-term outcomes.",
+  ),
+  "illinois-gritton": review(
+    [2, 1, 2, 3, 2],
+    [1, 3, 1, 2],
+    "General biological preparation and recording transfer; rodent handling, electrophysiology and coding are gaps. Technician opportunities explicitly allow relevant bachelor's preparation and do not require prior rodent experience; current terms need confirmation.",
+    "Neural recording, rodent behavior and circuit manipulation document specialized models. Technician access is explicit; structured mentoring outcomes and major contributions remain unverified.",
+  ),
+  "umich-collins": review(
+    [2, 2, 2, 3, 3],
+    [1, 3, 1, 2],
+    "Culture and molecular assays overlap with HIV research, but viral methods and immune-cell workflows need training. Paid post-baccalaureate inquiries are documented; preference for extensive research or two years may limit a shorter placement.",
+    "HIV reservoir and immune-evasion studies document specialized cellular models and translational questions. Technician recruitment establishes access, without verified sustained mentoring outcomes or automatic institutional credit.",
+  ),
+  "uic-xiaowei-wang": review(
+    [3, 2, 2, 3, 3],
+    [2, 2, 1, 2],
+    "Cancer and molecular interests align, with some assay overlap; genomics, microRNA analysis and bioinformatics need training. Junior-technician recruitment is explicit, but individual prerequisites and pay are unknown.",
+    "Named miRDB, OncoDB and related research tools document scientific contributions and computational resources. Junior recruitment establishes access, not independently verified mentoring outcomes.",
+  ),
+  "wayne-mindy-huang": review(
+    [1, 0, 1, 3, 1],
+    [1, 2, 1, 1],
+    "Drug-discovery questions are adjacent, but biomolecular simulation and Linux software support are not demonstrated. An assistant inquiry is explicit and prior experience is not required; technical duties still require substantial retraining.",
+    "Computational protein-ligand modeling supports specialized methods. Assistant access is documented; major contributions, structured mentoring and specific collaborations are unverified.",
+  ),
+  "iowa-rothenberg": review(
+    [3, 2, 2, 3, 3],
+    [1, 3, 1, 2],
+    "Cell migration and cancer biology align, with culture and fluorescence microscopy overlap. Fly embryos, biophysics and quantitative imaging code need training; post-undergraduate inquiries are explicit without verified pay or schedule.",
+    "Human and fly migration systems, live imaging and adhesion tools establish specialized resources and interdisciplinary methods. A post-baccalaureate invitation supports access, without verified long-term mentoring outcomes.",
+  ),
+  "iowa-shen": review(
+    [2, 2, 2, 3, 3],
+    [1, 3, 1, 2],
+    "Molecular assays and microscopy transfer; animal genetics, toxicant experiments and epitranscriptomic analysis require training. Research-assistant applications are invited, with specific role terms unverified.",
+    "Cell and animal systems linking psychiatric genetics and environmental exposure establish specialized resources and multidisciplinary work. Assistant recruitment provides access, without evidenced major impact or sustained mentoring outcomes.",
+  ),
+  "iowa-tomchik": review(
+    [2, 2, 2, 3, 3],
+    [1, 3, 1, 2],
+    "Culture, molecular assays and imaging overlap partly; iPSCs, flies and multiphoton imaging require training. Generic technician inquiries remain appropriate, but the linked 2026 HR role is closed and a current paid vacancy is not verified.",
+    "Imaging, optogenetics, stem-cell and fly systems support specialized neuroscience resources. Technician inquiry access is explicit; major contribution impact and structured mentoring outcomes are unverified.",
+  ),
+};

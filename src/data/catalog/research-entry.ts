@@ -1,4 +1,5 @@
-import { labSchema } from "../../domain/schemas";
+import { labSchema, pathwaySchema } from "../../domain/schemas";
+import type { z } from "zod";
 import type { Lab } from "../../domain/types";
 import { scoredFields } from "../scoring";
 
@@ -15,7 +16,10 @@ type RequiredFields =
   | "strengths"
   | "gaps";
 export type ResearchEntry = Pick<Lab, RequiredFields> &
-  Partial<Omit<Lab, RequiredFields>> & { evidence?: string };
+  Partial<Omit<Lab, RequiredFields | "pathway">> & {
+    evidence?: string;
+    pathway?: z.input<typeof pathwaySchema>;
+  };
 
 /** A verified research group is not, by itself, a verified hiring opportunity. */
 export function researchLab(input: ResearchEntry): Lab {

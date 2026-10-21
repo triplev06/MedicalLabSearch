@@ -21,9 +21,10 @@ describe("published catalog", () => {
           lab.id,
         ).toBe(true);
       if (lab.deadline.kind !== "unknown")
-        expect(lab.sources.some((s) => s.claims.includes("deadline"))).toBe(
-          true,
-        );
+        expect(
+          lab.sources.some((s) => s.claims.includes("deadline")),
+          lab.id,
+        ).toBe(true);
     }
   });
 });

@@ -13,6 +13,8 @@ import { AtlasProvider } from "../app/AtlasProvider";
 import { db, defaultPreferences } from "../storage/db";
 import { exportBackup } from "../storage/backup";
 import { saveLab } from "../storage/tracking";
+import * as tracking from "../storage/tracking";
+import Dexie from "dexie";
 import { labs } from "../data/labs";
 // Load the real lazy chart module during collection, so cold Vite transforms
 // do not consume the deadline-panel interaction test's assertion budget.
@@ -32,6 +34,60 @@ function start(path = "/discover") {
   );
 }
 describe("application views", () => {
+  it.each(["slider", "reset"])(
+    "keeps the %s default while an older saved preference is still visible",
+    async (action) => {
+      await db.preferences.put({ ...defaultPreferences, minFit: 100 });
+      let releaseWrite!: () => void;
+      const pending = new Promise<void>((resolve) => {
+        releaseWrite = resolve;
+      });
+      vi.spyOn(tracking, "setPreferences").mockImplementation(async (prefs) => {
+        await Dexie.waitFor(pending);
+        await db.preferences.put(prefs);
+      });
+      start("/discover?minFit=100");
+      try {
+        const slider = await screen.findByLabelText("Minimum résumé fit");
+        if (action === "slider")
+          fireEvent.change(slider, { target: { value: "50" } });
+        else
+          await userEvent.click(
+            screen.getByRole("button", { name: "Reset filters" }),
+          );
+        await userEvent.click(
+          screen.getByRole("button", { name: /^Nationwide$/ }),
+        );
+        expect(slider).toHaveValue("50");
+      } finally {
+        releaseWrite();
+        await waitFor(async () =>
+          expect((await db.preferences.get("main"))?.minFit).toBe(50),
+        );
+      }
+    },
+  );
+  it("opens a first-role view with public eligibility and duration filters without changing preferences", async () => {
+    await db.preferences.put({ ...defaultPreferences, minFit: 65 });
+    start();
+    await userEvent.click(
+      await screen.findByRole("button", { name: "First research role" }),
+    );
+    expect(screen.getByLabelText("Entry pathway")).toHaveValue("documented");
+    expect(screen.getByLabelText("Applicant audience")).toHaveValue("external");
+    expect(screen.getByLabelText("Minimum commitment")).toHaveValue(
+      "up-to-year",
+    );
+    expect(screen.getByLabelText("Sort laboratories")).toHaveValue(
+      "entry-route",
+    );
+    expect((await db.preferences.get("main"))?.minFit).toBe(65);
+    await userEvent.selectOptions(
+      screen.getByLabelText("Compensation"),
+      "paid",
+    );
+    expect(screen.getByLabelText("Compensation")).toHaveValue("paid");
+  });
   it("shows auditable criterion scores and confidence limits on a lab profile", async () => {
     start("/labs/meyerson");
     expect(
@@ -60,7 +116,13 @@ describe("application views", () => {
       screen.getByLabelText("City"),
       "San Francisco",
     );
-    expect(screen.getAllByTestId("lab-card")).toHaveLength(4);
+    expect(screen.getAllByTestId("lab-card")).toHaveLength(
+      Math.min(
+        24,
+        labs.filter((l) => l.state === "CA" && l.city === "San Francisco")
+          .length,
+      ),
+    );
     for (const card of screen.getAllByTestId("lab-card"))
       expect(card).toHaveTextContent("San Francisco, CA");
     expect(screen.queryByLabelText("Alaska")).not.toBeInTheDocument();
@@ -82,10 +144,15 @@ describe("application views", () => {
     await userEvent.click(
       screen.getByRole("button", { name: "Show more laboratories" }),
     );
-    expect(screen.getAllByTestId("lab-card")).toHaveLength(29);
+    const columbus = labs.filter(
+      (l) => l.city === "Columbus" && l.state === "OH",
+    ).length;
+    expect(screen.getAllByTestId("lab-card")).toHaveLength(
+      Math.min(48, columbus),
+    );
     expect(
-      screen.queryByRole("button", { name: "Show more laboratories" }),
-    ).not.toBeInTheDocument();
+      !!screen.queryByRole("button", { name: "Show more laboratories" }),
+    ).toBe(columbus > 48);
   });
   it("displays the same combined score as a bookmarked ranking weight", async () => {
     start("/discover?fitWeight=0");
@@ -254,13 +321,19 @@ describe("application views", () => {
     expect(screen.getByText(/Scores are a starting point/)).toBeInTheDocument();
   });
   it("explains an empty verified deadline list separately from reminders", async () => {
-    await saveLab("meyerson");
-    start("/");
-    expect(
-      await screen.findByText("No verified upcoming deadlines"),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: "Follow-ups" }),
-    ).toBeInTheDocument();
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date(2035, 0, 1));
+    try {
+      await saveLab("meyerson");
+      start("/");
+      expect(
+        await screen.findByText("No verified upcoming deadlines"),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("heading", { name: "Follow-ups" }),
+      ).toBeInTheDocument();
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });

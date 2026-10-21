@@ -1,16 +1,67 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import fs from "node:fs/promises";
+import { labs } from "../../src/data/labs";
+
+test("first-role filters expose paid evidence and save a new lab locally", async ({
+  page,
+}) => {
+  await page.goto("/discover?minFit=0");
+  await page
+    .getByRole("button", { name: "First research role", exact: true })
+    .click();
+  await expect(page).toHaveURL(/pathway=documented/);
+  await expect(page).toHaveURL(/commitment=up-to-year/);
+  const filters = page.getByRole("button", { name: "Filters", exact: true });
+  if (await filters.isVisible()) await filters.click();
+  await expect(page.getByLabel("Working hours", { exact: true })).toHaveValue(
+    "full-or-unknown",
+  );
+  await page.getByLabel("Compensation", { exact: true }).selectOption("paid");
+  await page
+    .getByRole("textbox", { name: "Search laboratories" })
+    .fill("Barbie");
+  await expect(page.getByTestId("lab-card")).toHaveCount(1);
+  await expect(page.getByTestId("lab-card")).toContainText("Paid");
+  await page.reload();
+  await expect(page.getByTestId("lab-card")).toHaveCount(1);
+  await page
+    .getByRole("link", { name: "Barbie Laboratory", exact: true })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Documented entry role", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", {
+      name: /^Official entry-route information/,
+    }),
+  ).toHaveAttribute(
+    "href",
+    "https://careers.dana-farber.org/job/2077/research-technician-barbie-lab-research-laboratory-us-ma-boston-450-brookline-ave/",
+  );
+  await page
+    .getByRole("button", { name: "Save Barbie Laboratory", exact: true })
+    .click();
+  await page.getByRole("link", { name: /Application Tracker/ }).click();
+  await page.reload();
+  await expect(
+    page.getByRole("heading", { name: "Barbie Laboratory", exact: true }),
+  ).toBeVisible();
+});
 
 test("strict score evidence and all-fit exploration remain transparent", async ({
   page,
 }) => {
   await page.goto("/discover?minFit=80");
-  await expect(page.getByTestId("lab-card")).toHaveCount(2);
+  await expect(page.getByTestId("lab-card")).toHaveCount(
+    Math.min(24, labs.filter((l) => l.fit >= 80).length),
+  );
   await page.getByRole("button", { name: "Explore all fit levels" }).click();
   await expect(page).toHaveURL(/minFit=0/);
   await expect(
-    page.getByText("Showing 24 of 201 matching entries", { exact: true }),
+    page.getByText(`Showing 24 of ${labs.length} matching entries`, {
+      exact: true,
+    }),
   ).toBeVisible();
   await page
     .getByRole("textbox", { name: "Search laboratories" })
@@ -51,7 +102,12 @@ test("new nationwide state and city filters lead to a persistent application", a
   if (await filters.isVisible()) await filters.click();
   await page.getByLabel("California", { exact: true }).check();
   await page.getByLabel("City", { exact: true }).selectOption("San Francisco");
-  await expect(page.getByTestId("lab-card")).toHaveCount(4);
+  await expect(page.getByTestId("lab-card")).toHaveCount(
+    Math.min(
+      24,
+      labs.filter((l) => l.state === "CA" && l.city === "San Francisco").length,
+    ),
+  );
   await expect(page).toHaveURL(/city=San\+Francisco/);
   await page
     .getByRole("link", { name: "Bivona Laboratory", exact: true })
@@ -82,7 +138,12 @@ test("regional discovery finds expanded labs and keeps saved applications after 
   await expect(page).toHaveURL(/city=Columbus/);
   await expect(page.getByTestId("lab-card")).toHaveCount(24);
   await page.getByRole("button", { name: "Show more laboratories" }).click();
-  await expect(page.getByTestId("lab-card")).toHaveCount(29);
+  await expect(page.getByTestId("lab-card")).toHaveCount(
+    Math.min(
+      48,
+      labs.filter((l) => l.state === "OH" && l.city === "Columbus").length,
+    ),
+  );
   await page
     .getByRole("button", { name: "Save Carson Laboratory", exact: true })
     .click();
@@ -95,13 +156,17 @@ test("regional discovery finds expanded labs and keeps saved applications after 
     await expect(card).toContainText("Columbus, OH");
   await page.getByRole("button", { name: "Clear search", exact: true }).click();
   await page.getByRole("button", { name: "Chicago area", exact: true }).click();
-  await expect(page.getByTestId("lab-card")).toHaveCount(20);
+  await expect(page.getByTestId("lab-card")).toHaveCount(
+    Math.min(24, labs.filter((l) => l.state === "IL").length),
+  );
   await page
     .getByRole("button", { name: "All locations", exact: true })
     .click();
   await expect(page.getByTestId("lab-card")).toHaveCount(24);
   await expect(
-    page.getByText("Showing 24 of 201 matching entries", { exact: true }),
+    page.getByText(`Showing 24 of ${labs.length} matching entries`, {
+      exact: true,
+    }),
   ).toBeVisible();
   await page.getByRole("link", { name: /Application Tracker/ }).click();
   await page.reload();

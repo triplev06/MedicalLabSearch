@@ -38,7 +38,7 @@ The architecture uses static hosting and is compatible with the Hobby tier. Verc
 ## What is included
 
 - Dashboard with fit-focused recommendations, prominent verified-deadline section, follow-ups, recent status activity, stage and submission charts, and interview/offer milestones.
-- Discover with search, public bookmarkable filter URLs, multiselect states, nationwide reset, field/institution/availability/experience filters, prestige bounds, fit threshold, deadline windows, seven sort modes and local status/favorite/priority filters.
+- Discover with search, public bookmarkable filter URLs, multiselect states, nationwide reset, field/institution/availability/experience filters, prestige bounds, fit threshold, deadline windows, eight sort modes and local status/favorite/priority filters. Entry-route, compensation, audience, hours and minimum-duration filters combine with these controls.
 - Source-backed laboratory profiles with role-specific availability, requirements, qualification gaps, contacts where verified and official links.
 - Comparison of two or more labs, including research context, eligibility, location and application process.
 - Six-stage tracker with dnd-kit pointer/keyboard support and an explicit Move to control. Desktop uses a horizontal board; phone layouts stack stages vertically for dependable focus and tap behavior. Notes, dates, priorities, favorites, contact records, communication notes, status timelines and events persist locally.
@@ -46,13 +46,13 @@ The architecture uses static hosting and is compatible with the Hobby tier. Verc
 
 ## Published catalog and verification
 
-`src/data/labs.ts` assembles **201 official-source entries across 20 states**, checked on **October 21, 2026**: 197 laboratory groups and four clearly identified OhioHealth clinical research/training programs. The catalog balances advertised technician/assistant roles with inquiry and monitoring targets. Geographic coverage is nationwide in scope, not exhaustive of all states or research fields.
+`src/data/labs.ts` assembles **366 official-source entries across 33 states**, checked on **October 21, 2026**: 362 laboratory groups and four clearly identified OhioHealth clinical research/training programs. This stable checkpoint contains **165 of the requested 300 entry-pathway additions**; the remaining 135 are still being researched. The catalog balances advertised technician/assistant roles with inquiry and monitoring targets. Geographic coverage is nationwide in scope, not exhaustive of all states or research fields.
 
-The Ohio/Chicago expansion added 14 OSU Wexner/James labs, 11 Nationwide Children's labs, 25 Cleveland Clinic labs, three additional Case Western Reserve labs, 12 UChicago labs, four Northwestern labs, two Rush labs, two Loyola labs and four OhioHealth programs. A further **100 distinct labs across 18 major metros** now cover western/midwestern, northeastern and southern research centers. Original stable IDs remain unchanged. Columbus has 29 entries including the four OhioHealth programs; Ohio has 58 entries. Research modules live in `src/data/catalog/` and remain separate from browser-private tracking records. See [nationwide selection and economic-area evidence](docs/research/nationwide-selection.md) for the city distribution, sources and interpretation of the location preference.
+The Ohio/Chicago expansion added 14 OSU Wexner/James labs, 11 Nationwide Children's labs, 25 Cleveland Clinic labs, three additional Case Western Reserve labs, 12 UChicago labs, four Northwestern labs, two Rush labs, two Loyola labs and four OhioHealth programs. A further **100 distinct labs across 18 major metros** cover western/midwestern, northeastern and southern research centers. Original stable IDs remain unchanged. The earlier release contained 29 Columbus entries and 58 Ohio entries; subsequent entry-pathway batches expand this coverage. Research modules live in `src/data/catalog/` and remain separate from browser-private tracking records. See [nationwide selection and economic-area evidence](docs/research/nationwide-selection.md) for the original city distribution, sources and interpretation of the location preference.
 
 Discover includes Columbus, Ohio and Chicago regional shortcuts, a city selector, multi-state filtering and city-aware text search. All represented states appear automatically using a full U.S. state-name map. Region, research query and other filters combine; public city/state selections can be bookmarked without sharing private notes or application statuses. Equivalent research-field labels are normalized across modules. Discovery shows 24 initial cards and an accessible Show more control; filtering or reranking resets the batch while the total match count remains visible.
 
-Availability totals as verified: **six confirmed role advertisements, nine inquiry pathways, 184 research-interest targets and two explicitly closed technician routes**. Research-interest entries do not establish job vacancies. OhioHealth clinical trial pages describe research programs, not staff recruitment; its externship has enrollment restrictions and no verified upcoming cycle deadline.
+Availability totals as verified: **37 confirmed role/training advertisements, 143 inquiry pathways, 184 research-interest targets and two explicitly closed technician routes**. Research-interest entries do not establish job vacancies. OhioHealth clinical trial pages describe research programs, not staff recruitment; its externship has enrollment restrictions and no verified upcoming cycle deadline.
 
 Each record contains stable ID, PI, institution, location, research fields, official URL(s), verified contact or `null`, source evidence/claim categories, verification date, requirements, experience/eligibility caveats, application method and editorial fit/prestige assessments. Never infer a position from an existing lab page or a staff list.
 
@@ -63,9 +63,17 @@ Availability is specific to the relevant assistant/technician or inquiry pathway
 | Confirmed opening          | An official page explicitly advertises a relevant role as of verification. It can still change after verification.                |
 | Accepting inquiries        | The group invites inquiries or student engagement; a paid vacancy is not established.                                             |
 | Lab of interest            | Relevant science, but no suitable opening confirmed. Some pages advertise only doctoral roles, flagged as an eligibility barrier. |
-| Not recruiting technicians | An official source explicitly states no technician vacancy. Separate postdoctoral openings do not change this category.           |
+| Closed / no suitable opening | An official source explicitly states the relevant route is closed or unavailable. Separate postdoctoral openings do not change this category. |
 
-There are **no verified upcoming fixed deadlines or verified rolling technician deadlines in the catalog**. Unknown deadlines are intentional. Closing Soon displays an honest empty state until a source-backed future fixed deadline is added. Tests exercise fixed, rolling, unknown and expired dates using test fixtures only; those fixtures are never production opportunities.
+The entry-pathway expansion includes verified fixed deadlines. Closing Soon calculates the next sixty days dynamically; its empty state appears when no confirmed date falls within that window. Unknown deadlines remain intentional. Tests also exercise fixed, rolling, unknown and expired dates with fixtures that are never production opportunities.
+
+### Finding a first research role
+
+**First research role** selects documented routes, excludes institution-only programs, known part-time roles and documented minimum commitments over twelve months, and sorts confirmed paid staff roles first. It keeps the chosen scientific-fit threshold and geography. Roles with unspecified hours or duration remain visible with explicit uncertainty; use **Verified full time** and **Verified up to 12 months** for stricter evidence. The shortcut changes the public view without overwriting saved ranking preferences.
+
+A documented inquiry is permission to ask about capacity, not proof of a paid vacancy or likely acceptance. Compensation is paid only when an official source says so. Public restrictions, required skills and preferred skills remain visible separately. The dataset includes no applicant citizenship, original résumé text or identifying details.
+
+`pathway` evidence records the route, compensation, applicant audience, hours, minimum commitment and official source. Existing labs default to **Entry route unverified** until reviewed; a high fit score never establishes accessibility. Every new route must have a matching availability/requirements source claim. Do not pad expansions with closed programs, institution-only undergraduate routes or old mentor lists that do not fit the intended applicant.
 
 To refresh the catalog:
 
@@ -82,7 +90,7 @@ Version 2 replaces inflated aggregate guesses with explicit 0–4 evidence revie
 
 The UI labels the second index **Prestige evidence**. It weights documented impact 40, resources 25, mentorship 20 and collaboration 15. A famous institution earns no automatic bonus. Missing documentation can lower this evidence index without establishing poor quality or weak overall reputation. Profiles show each awarded evidence level, weighted contribution, explanation and cap. All reviews remain editorial, not validated probabilities or official rankings.
 
-Twelve additional regional-institution and adjacent-field labs broaden the research mix. Current observed fit spans 25–85 (two labs at 80+); prestige evidence spans 20–75. No target distribution, percentile rescaling or arbitrary score multiplier is applied. See [complete criterion anchors, caps and audit](docs/research/scoring-rubric.md).
+Twelve additional regional-institution and adjacent-field labs broaden the research mix. Current observed fit spans 25–85 (three labs at 80+); prestige evidence spans 20–75. No target distribution, percentile rescaling or arbitrary score multiplier is applied. See [complete criterion anchors, caps and audit](docs/research/scoring-rubric.md).
 
 ```text
 Combined recommendation = fit × fitWeight + prestigeEvidence × (1 − fitWeight)

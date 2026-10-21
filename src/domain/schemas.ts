@@ -25,6 +25,37 @@ export const deadlineSchema = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("rolling") }),
   z.object({ kind: z.literal("unknown") }),
 ]);
+export const pathwaySchema = z
+  .object({
+    kind: z.enum(["entry-role", "training", "inquiry", "unverified"]),
+    compensation: z.enum(["paid", "unpaid", "unknown"]),
+    audience: z.enum([
+      "general",
+      "institution-students",
+      "students",
+      "unknown",
+    ]),
+    evidence: z.string().min(20).max(20000),
+    sourceUrl: https.nullable(),
+    time: z
+      .enum(["full-time", "part-time", "flexible", "unknown"])
+      .default("unknown"),
+    minimumMonths: z.number().int().min(1).max(120).nullable().default(null),
+  })
+  .superRefine((pathway, ctx) => {
+    if (pathway.kind !== "unverified" && !pathway.sourceUrl)
+      ctx.addIssue({
+        code: "custom",
+        path: ["sourceUrl"],
+        message: "A documented pathway needs an official source",
+      });
+    if (pathway.kind === "unverified" && pathway.compensation !== "unknown")
+      ctx.addIssue({
+        code: "custom",
+        path: ["compensation"],
+        message: "Unverified routes cannot claim compensation",
+      });
+  });
 export const labSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   name: text,
@@ -70,6 +101,16 @@ export const labSchema = z.object({
   gaps: z.array(text),
   prestigeReason: text,
   assessment: text,
+  pathway: pathwaySchema.default({
+    kind: "unverified",
+    compensation: "unknown",
+    audience: "unknown",
+    evidence:
+      "No suitable entry-level employment or training pathway has been verified for this group.",
+    sourceUrl: null,
+    time: "unknown",
+    minimumMonths: null,
+  }),
 });
 export const eventSchema = z.object({
   id: z.string().min(1).max(100),
