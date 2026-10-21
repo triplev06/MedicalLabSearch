@@ -9,6 +9,7 @@ Verified October 21, 2026 using Node.js 24.22.0.
 | Vitest / React Testing Library | 30 tests passed in 5 files |
 | Playwright Chromium | 7 passed; 1 intentionally skipped |
 | Production build | Passed; static output in `dist` |
+| Production browser smoke | Six direct routes, compiled asset loading, application movement and reload persistence passed |
 | npm audit | Zero vulnerabilities |
 | Private identifier scan | Zero matches in application source/build for checked private names, institutions and original document email addresses |
 | Original reference exclusion | Git confirms the private document is ignored; it is outside build output |
