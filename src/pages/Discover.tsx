@@ -27,6 +27,7 @@ const stateNames: Record<string, string> = {
   OH: "Ohio",
   PA: "Pennsylvania",
   MI: "Michigan",
+  IL: "Illinois",
 };
 export function Discover() {
   const { records, prefs, now, updatePrefs } = useAtlas(),
@@ -70,6 +71,26 @@ export function Discover() {
         title="Discover your next chapter."
         description="Explore source-backed laboratories. Find where your experience can grow."
       />
+      <nav className="region-shortcuts" aria-label="Browse by region">
+        {[
+          { label: "Columbus area", city: "Columbus", states: ["OH"] },
+          { label: "Ohio", city: "", states: ["OH"] },
+          { label: "Chicago area", city: "", states: ["IL"] },
+          { label: "All locations", city: "", states: [] },
+        ].map(({ label, city, states }) => (
+          <Button
+            key={label}
+            variant="outline"
+            size="sm"
+            aria-pressed={
+              f.city === city && f.states.join(",") === states.join(",")
+            }
+            onClick={() => change({ city, states })}
+          >
+            {label}
+          </Button>
+        ))}
+      </nav>
       <section className="panel ranking-panel">
         <div className="panel-intro">
           <SlidersHorizontal size={19} />
@@ -154,32 +175,47 @@ export function Discover() {
             <Button
               variant={!f.states.length ? "default" : "outline"}
               size="sm"
-              onClick={() => change({ states: [] })}
+              onClick={() => change({ states: [], city: "" })}
             >
               <Globe2 size={14} />
               Nationwide
             </Button>
             <div className="state-list">
-              {Object.entries(stateNames).map(([code, name]) => (
-                <label key={code}>
-                  <input
-                    type="checkbox"
-                    aria-label={name}
-                    checked={f.states.includes(code)}
-                    onChange={() =>
-                      change({
-                        states: f.states.includes(code)
-                          ? f.states.filter((s) => s !== code)
-                          : [...f.states, code],
-                      })
-                    }
-                  />
-                  {name}
-                  <span>{labs.filter((l) => l.state === code).length}</span>
-                </label>
-              ))}
+              {Object.entries(stateNames)
+                .sort((a, b) => a[1].localeCompare(b[1]))
+                .map(([code, name]) => (
+                  <label key={code}>
+                    <input
+                      type="checkbox"
+                      aria-label={name}
+                      checked={f.states.includes(code)}
+                      onChange={() =>
+                        change({
+                          city: "",
+                          states: f.states.includes(code)
+                            ? f.states.filter((s) => s !== code)
+                            : [...f.states, code],
+                        })
+                      }
+                    />
+                    {name}
+                    <span>{labs.filter((l) => l.state === code).length}</span>
+                  </label>
+                ))}
             </div>
           </fieldset>
+          <FilterSelect
+            label="City"
+            value={f.city}
+            onChange={(city) => change({ city })}
+            values={[
+              ...new Set(
+                labs
+                  .filter((l) => !f.states.length || f.states.includes(l.state))
+                  .map((l) => l.city),
+              ),
+            ].sort()}
+          />
           <FilterSelect
             label="Research field"
             value={f.field}
@@ -293,13 +329,19 @@ export function Discover() {
         <div>
           <div className="results-caption">
             <p>
-              <strong>{found.length}</strong> laboratories{" "}
-              <span>· Curated for your research path</span>
+              <strong>{found.length}</strong> laboratories &amp; research
+              programs <span>· Curated for your research path</span>
             </p>
             <span className="verified-caption">
               Official sources · checked Oct 21, 2026
             </span>
           </div>
+          <p className="catalog-context">
+            {labs.length} curated labs and programs. A research lead is not a
+            job opening. Use Availability to find confirmed positions or labs
+            accepting inquiries. Program eligibility is listed separately in
+            each profile.
+          </p>
           {found.length ? (
             <div className="lab-grid">
               {found.map((l) => (

@@ -2,6 +2,39 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import fs from "node:fs/promises";
 
+test("regional discovery finds expanded labs and keeps saved applications after reload", async ({
+  page,
+}) => {
+  await page.goto("/discover");
+  await page
+    .getByRole("button", { name: "Columbus area", exact: true })
+    .click();
+  await expect(page).toHaveURL(/city=Columbus/);
+  await expect(page.getByTestId("lab-card")).toHaveCount(29);
+  await page
+    .getByRole("button", { name: "Save Carson Laboratory", exact: true })
+    .click();
+  await page
+    .getByRole("textbox", { name: "Search laboratories" })
+    .fill("immunology");
+  await expect(page).toHaveURL(/city=Columbus/);
+  await expect(page.getByTestId("lab-card").first()).toBeVisible();
+  for (const card of await page.getByTestId("lab-card").all())
+    await expect(card).toContainText("Columbus, OH");
+  await page.getByRole("button", { name: "Clear search", exact: true }).click();
+  await page.getByRole("button", { name: "Chicago area", exact: true }).click();
+  await expect(page.getByTestId("lab-card")).toHaveCount(20);
+  await page
+    .getByRole("button", { name: "All locations", exact: true })
+    .click();
+  await expect(page.getByTestId("lab-card")).toHaveCount(89);
+  await page.getByRole("link", { name: /Application Tracker/ }).click();
+  await page.reload();
+  await expect(
+    page.getByRole("heading", { name: "Carson Laboratory", exact: true }),
+  ).toBeVisible();
+});
+
 test("populated dashboard charts are accessible in light and dark mode", async ({
   page,
 }, info) => {

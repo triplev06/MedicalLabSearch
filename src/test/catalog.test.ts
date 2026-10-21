@@ -11,10 +11,15 @@ describe("published catalog", () => {
       expect(labSchema.safeParse(lab).success, lab.id).toBe(true);
       expect(lab.sources.length).toBeGreaterThan(0);
       expect(lab.sources.some((s) => s.claims.includes("research"))).toBe(true);
-      if (lab.availability === "open")
+      if (lab.availability === "open" || lab.availability === "inquiries")
         expect(lab.sources.some((s) => s.claims.includes("availability"))).toBe(
           true,
         );
+      if (lab.contact)
+        expect(
+          lab.sources.some((s) => s.claims.includes("contact")),
+          lab.id,
+        ).toBe(true);
       if (lab.deadline.kind !== "unknown")
         expect(lab.sources.some((s) => s.claims.includes("deadline"))).toBe(
           true,

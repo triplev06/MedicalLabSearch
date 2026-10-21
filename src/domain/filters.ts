@@ -12,6 +12,7 @@ export const sorts = [
 ] as const;
 export type Filters = {
   query: string;
+  city: string;
   states: string[];
   field: string;
   institution: string;
@@ -29,6 +30,7 @@ export type Filters = {
 };
 export const defaultFilters: Filters = {
   query: "",
+  city: "",
   states: [],
   field: "",
   institution: "",
@@ -57,11 +59,15 @@ export function selectLabs(
         days = deadlineInfo(l.deadline, now).days;
       return (
         (!f.query ||
-          `${l.name} ${l.institution} ${l.pi} ${l.description} ${l.fields.join(" ")}`
+          `${l.name} ${l.institution} ${l.pi} ${l.city} ${l.state} ${l.description} ${l.fields.join(" ")}`
             .toLowerCase()
             .includes(f.query.toLowerCase())) &&
         (!f.states.length || f.states.includes(l.state)) &&
-        (!f.field || l.fields.includes(f.field)) &&
+        (!f.city || l.city === f.city) &&
+        (!f.field ||
+          l.fields.some(
+            (field) => field.toLowerCase() === f.field.toLowerCase(),
+          )) &&
         (!f.institution || l.institution === f.institution) &&
         l.fit >= f.minFit &&
         l.prestige >= f.prestigeMin &&
@@ -112,6 +118,7 @@ export function selectLabs(
 }
 const publicKeys = [
   "query",
+  "city",
   "states",
   "field",
   "institution",
@@ -137,6 +144,7 @@ export function decodeFilters(p: URLSearchParams): Filters {
   const f = { ...defaultFilters, states: [] as string[] };
   for (const k of [
     "query",
+    "city",
     "field",
     "institution",
     "availability",

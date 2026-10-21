@@ -1,5 +1,8 @@
 import type { Lab } from "../domain/types";
 import { labSchema } from "../domain/schemas";
+import { columbusLabs } from "./catalog/columbus";
+import { clevelandOhioHealthLabs } from "./catalog/cleveland-ohiohealth";
+import { chicagoMidwestLabs } from "./catalog/chicago-midwest";
 
 const md =
   "https://www.mdanderson.org/research/departments-labs-institutes/labs/";
@@ -40,7 +43,7 @@ function entry(e: Entry): Lab {
 
 // All descriptions and assessments are editorial paraphrases, not acceptance predictions.
 // Unknown deadlines are intentional. Source pages did not verify a fixed deadline or rolling policy.
-export const labs: Lab[] = [
+const initialLabs: Lab[] = [
   entry({
     id: "meyerson",
     name: "Meyerson Laboratory",
@@ -524,3 +527,25 @@ export const labs: Lab[] = [
     ],
   }),
 ];
+
+const catalog: Lab[] = [
+  ...initialLabs,
+  ...columbusLabs,
+  ...clevelandOhioHealthLabs,
+  ...chicagoMidwestLabs,
+];
+
+// Preserve one display label per scientific field across separately researched modules.
+const fieldLabels = new Map<string, string>();
+export const labs: Lab[] = catalog.map((lab) => ({
+  ...lab,
+  fields: [
+    ...new Set(
+      lab.fields.map((field) => {
+        const key = field.trim().toLowerCase();
+        if (!fieldLabels.has(key)) fieldLabels.set(key, field.trim());
+        return fieldLabels.get(key)!;
+      }),
+    ),
+  ],
+}));

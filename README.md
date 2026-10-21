@@ -46,7 +46,13 @@ The architecture uses static hosting and is compatible with the Hobby tier. Verc
 
 ## Published catalog and verification
 
-`src/data/labs.ts` contains **12 real laboratories across seven states**, checked against official sources on **October 21, 2026**. The initial catalog balances advertised technician/assistant roles with relevant inquiry and monitoring targets. Specialized institutes and medical centers are included alongside universities. Geographic coverage is nationwide in scope, not exhaustive of all states or research fields.
+`src/data/labs.ts` assembles **89 official-source entries across eight states**, checked on **October 21, 2026**: 85 laboratory groups and four clearly identified OhioHealth clinical research/training programs. The catalog balances advertised technician/assistant roles with inquiry and monitoring targets. Geographic coverage is nationwide in scope, not exhaustive of all states or research fields.
+
+The expansion adds 14 OSU Wexner/James labs, 11 Nationwide Children's labs, 25 Cleveland Clinic labs, three additional Case Western Reserve labs, 12 UChicago labs, four Northwestern labs, two Rush labs, two Loyola labs and four OhioHealth programs. Original stable IDs remain unchanged. Columbus has 29 entries including the four OhioHealth programs; Ohio has 58 entries. Research modules live in `src/data/catalog/` and remain separate from browser-private tracking records.
+
+Discover includes Columbus, Ohio and Chicago regional shortcuts, a city selector, multi-state filtering and city-aware text search. Region, research query and other filters combine; public city/state selections can be bookmarked without sharing private notes or application statuses. Equivalent research-field labels are normalized across modules.
+
+Availability totals as verified: **five confirmed role advertisements, six inquiry pathways, 77 research-interest targets and one explicitly closed technician route**. The 77 new entries do not establish 77 job vacancies. OhioHealth clinical trial pages describe research programs, not staff recruitment; its externship has enrollment restrictions and no verified upcoming cycle deadline.
 
 Each record contains stable ID, PI, institution, location, research fields, official URL(s), verified contact or `null`, source evidence/claim categories, verification date, requirements, experience/eligibility caveats, application method and editorial fit/prestige assessments. Never infer a position from an existing lab page or a staff list.
 
@@ -59,7 +65,7 @@ Availability is specific to the relevant assistant/technician or inquiry pathway
 | Lab of interest            | Relevant science, but no suitable opening confirmed. Some pages advertise only doctoral roles, flagged as an eligibility barrier. |
 | Not recruiting technicians | An official source explicitly states no technician vacancy. Separate postdoctoral openings do not change this category.           |
 
-There are **no verified upcoming fixed deadlines or verified rolling technician deadlines in the initial catalog**. Unknown deadlines are intentional. Closing Soon displays an honest empty state until a source-backed future fixed deadline is added. Tests exercise fixed, rolling, unknown and expired dates using test fixtures only; those fixtures are never production opportunities.
+There are **no verified upcoming fixed deadlines or verified rolling technician deadlines in the catalog**. Unknown deadlines are intentional. Closing Soon displays an honest empty state until a source-backed future fixed deadline is added. Tests exercise fixed, rolling, unknown and expired dates using test fixtures only; those fixtures are never production opportunities.
 
 To refresh the catalog:
 
