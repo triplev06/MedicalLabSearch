@@ -13,6 +13,7 @@ import { AtlasProvider } from "../app/AtlasProvider";
 import { db, defaultPreferences } from "../storage/db";
 import { exportBackup } from "../storage/backup";
 import { saveLab } from "../storage/tracking";
+import { labs } from "../data/labs";
 beforeEach(async () => {
   vi.restoreAllMocks();
   await db.records.clear();
@@ -28,6 +29,40 @@ function start(path = "/discover") {
   );
 }
 describe("application views", () => {
+  it("exposes new states and combines California with an exact city", async () => {
+    start();
+    await userEvent.click(await screen.findByLabelText("California"));
+    await userEvent.selectOptions(
+      screen.getByLabelText("City"),
+      "San Francisco",
+    );
+    expect(screen.getAllByTestId("lab-card")).toHaveLength(4);
+    for (const card of screen.getAllByTestId("lab-card"))
+      expect(card).toHaveTextContent("San Francisco, CA");
+    expect(screen.queryByLabelText("Alaska")).not.toBeInTheDocument();
+  });
+  it("expands discovery in batches and resets the batch when filters change", async () => {
+    start();
+    await screen.findByRole("heading", { name: "Discover your next chapter." });
+    expect(screen.getAllByTestId("lab-card")).toHaveLength(24);
+    await userEvent.click(
+      screen.getByRole("button", { name: "Show more laboratories" }),
+    );
+    expect(screen.getAllByTestId("lab-card")).toHaveLength(48);
+    await userEvent.click(screen.getByRole("button", { name: /^Ohio$/ }));
+    expect(screen.getAllByTestId("lab-card")).toHaveLength(24);
+    await userEvent.click(
+      screen.getByRole("button", { name: "Columbus area" }),
+    );
+    expect(screen.getAllByTestId("lab-card")).toHaveLength(24);
+    await userEvent.click(
+      screen.getByRole("button", { name: "Show more laboratories" }),
+    );
+    expect(screen.getAllByTestId("lab-card")).toHaveLength(29);
+    expect(
+      screen.queryByRole("button", { name: "Show more laboratories" }),
+    ).not.toBeInTheDocument();
+  });
   it("displays the same combined score as a bookmarked ranking weight", async () => {
     start("/discover?fitWeight=0");
     const link = await screen.findByRole("link", {
@@ -131,11 +166,17 @@ describe("application views", () => {
     start();
     await screen.findByRole("heading", { name: "Discover your next chapter." });
     await userEvent.click(screen.getByLabelText("Massachusetts"));
-    expect(screen.getAllByTestId("lab-card")).toHaveLength(2);
+    expect(screen.getAllByTestId("lab-card")).toHaveLength(
+      Math.min(24, labs.filter((l) => l.state === "MA" && l.fit >= 50).length),
+    );
+    for (const card of screen.getAllByTestId("lab-card"))
+      expect(card).toHaveTextContent(/, MA/);
     fireEvent.change(screen.getByLabelText("Minimum résumé fit"), {
       target: { value: "95" },
     });
-    expect(screen.getAllByTestId("lab-card")).toHaveLength(1);
+    expect(screen.getAllByTestId("lab-card")).toHaveLength(
+      Math.min(24, labs.filter((l) => l.state === "MA" && l.fit >= 95).length),
+    );
     await userEvent.click(screen.getByRole("button", { name: "Nationwide" }));
     expect(screen.getByLabelText("Massachusetts")).not.toBeChecked();
     fireEvent.change(screen.getByLabelText("Résumé fit weight"), {

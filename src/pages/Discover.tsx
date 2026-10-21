@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Search, SlidersHorizontal, Globe2, RotateCcw } from "lucide-react";
 import { labs } from "../data/labs";
+import { stateNames } from "../data/locations";
 import {
   decodeFilters,
   defaultFilters,
@@ -19,16 +20,6 @@ import {
 } from "../components/Shared";
 import { Button } from "../components/ui/button";
 import { statuses } from "../domain/schemas";
-const stateNames: Record<string, string> = {
-  MA: "Massachusetts",
-  WA: "Washington",
-  TX: "Texas",
-  TN: "Tennessee",
-  OH: "Ohio",
-  PA: "Pennsylvania",
-  MI: "Michigan",
-  IL: "Illinois",
-};
 export function Discover() {
   const { records, prefs, now, updatePrefs } = useAtlas(),
     [params, setParams] = useSearchParams(),
@@ -64,6 +55,10 @@ export function Discover() {
     void updatePrefs({ minFit: 50, fitWeight: 0.6 });
   }
   const found = selectLabs(labs, f, records, now);
+  const batchKey = JSON.stringify(f);
+  const [batch, setBatch] = useState({ key: batchKey, count: 24 });
+  if (batch.key !== batchKey) setBatch({ key: batchKey, count: 24 });
+  const shown = found.slice(0, batch.count);
   return (
     <>
       <PageHeading
@@ -182,6 +177,7 @@ export function Discover() {
             </Button>
             <div className="state-list">
               {Object.entries(stateNames)
+                .filter(([code]) => labs.some((lab) => lab.state === code))
                 .sort((a, b) => a[1].localeCompare(b[1]))
                 .map(([code, name]) => (
                   <label key={code}>
@@ -343,11 +339,29 @@ export function Discover() {
             each profile.
           </p>
           {found.length ? (
-            <div className="lab-grid">
-              {found.map((l) => (
-                <LabCard key={l.id} lab={l} weight={f.fitWeight} />
-              ))}
-            </div>
+            <>
+              <div className="lab-grid">
+                {shown.map((l) => (
+                  <LabCard key={l.id} lab={l} weight={f.fitWeight} />
+                ))}
+              </div>
+              <div className="results-batch">
+                <p role="status">
+                  Showing {shown.length} of {found.length} matching entries
+                </p>
+                {shown.length < found.length && (
+                  <Button
+                    variant="outline"
+                    aria-label="Show more laboratories"
+                    onClick={() =>
+                      setBatch({ key: batchKey, count: batch.count + 24 })
+                    }
+                  >
+                    Show {Math.min(24, found.length - shown.length)} more
+                  </Button>
+                )}
+              </div>
+            </>
           ) : (
             <div className="panel">
               <Empty title="No laboratories match these filters">

@@ -28,13 +28,13 @@ describe("recommendation and combined filters", () => {
       new Date(2026, 9, 21),
     );
     expect(found.map((l) => l.id).sort()).toEqual(["bernstein", "meyerson"]);
-    expect(
-      selectLabs(
-        labs,
-        { ...defaultFilters, states: ["TN"], minFit: 50 },
-        [],
-      ).map((l) => l.id),
-    ).toEqual(["mchaourab"]);
+    const tennessee = selectLabs(
+      labs,
+      { ...defaultFilters, states: ["TN"], minFit: 50 },
+      [],
+    );
+    expect(tennessee.some((l) => l.id === "mchaourab")).toBe(true);
+    expect(tennessee.every((l) => l.state === "TN" && l.fit >= 50)).toBe(true);
   });
   it("keeps private tracking filters out of shareable URLs and rejects invalid ranges", () => {
     const params = encodeFilters({

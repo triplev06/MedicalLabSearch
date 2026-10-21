@@ -2,25 +2,35 @@
 
 Verified October 21, 2026 using Node.js 24.22.0.
 
-| Check                          | Result                                                                                                                 |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| ESLint                         | Passed                                                                                                                 |
-| TypeScript                     | Passed                                                                                                                 |
-| Vitest / React Testing Library | 35 tests passed in 6 files                                                                                             |
-| Playwright Chromium            | 9 passed; 1 intentionally skipped                                                                                      |
-| Production build               | Passed; static output in `dist`                                                                                        |
-| Production browser smoke       | Six direct routes, compiled asset loading, application movement and reload persistence passed                          |
-| npm audit                      | Zero vulnerabilities                                                                                                   |
-| Private identifier scan        | Zero matches in application source/build for checked private names, institutions and original document email addresses |
-| Original reference exclusion   | Git confirms the private document is ignored; it is outside build output                                               |
+| Check                          | Result                                                                                                                |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| ESLint                         | Passed                                                                                                                |
+| TypeScript                     | Passed                                                                                                                |
+| Vitest / React Testing Library | 39 tests passed in 7 files                                                                                            |
+| Playwright Chromium            | 11 passed; 1 intentionally skipped                                                                                    |
+| Production build               | Passed; static output in `dist`                                                                                       |
+| Production browser smoke       | Seven direct routes, compiled asset loading, batched discovery, application movement and reload persistence passed    |
+| npm audit                      | Zero vulnerabilities                                                                                                  |
+| Private identifier scan        | Zero matches in application source/build for checked private names/file markers and original document email addresses |
+| Original reference exclusion   | Git confirms the private document is ignored; it is outside build output                                              |
 
 Browser tests cover desktop and Pixel 7 emulation. The desktop pointer-drag test is intentionally skipped in the phone project; both viewports test the explicit Move to control and the complete application workflow. Phone stages stack vertically; desktop retains the horizontal Kanban board.
 
 Accessibility checks use axe WCAG A/AA rules across six routes and populated dashboards in light/dark mode. They supplement keyboard interactions, visible focus states, focus-managed dialogs and visual inspection. They do not certify hardware touch, real-device Safari or every assistive technology.
 
-The official-source catalog now contains 89 entries across eight states: 85 laboratory groups and four OhioHealth clinical research/training programs. Ohio has 58 entries, including 29 in Columbus. Availability is five confirmed role advertisements, six inquiry pathways, 77 interest targets and one closed technician route. New research pages do not establish new vacancies. No fixed or rolling technician deadline was verified, so Closing Soon is intentionally empty. Official availability remains accurate only as of the record's verification date. Recheck before applying.
+The official-source catalog now contains 189 entries across 17 states: 185 laboratory groups and four OhioHealth clinical research/training programs. Ohio has 58 entries, including 29 in Columbus. Availability is six confirmed role advertisements, nine inquiry pathways, 172 interest targets and two closed technician routes. New research pages do not establish new vacancies. No fixed or rolling technician deadline was verified, so Closing Soon is intentionally empty. Official availability remains accurate only as of the record's verification date. Recheck before applying.
 
-## Catalog expansion verification
+## Nationwide 100-lab expansion verification
+
+Three separate Superpowers research tasks added exactly 100 distinct PI groups across 18 major metros. Each record has an official group or detailed faculty research source. Coverage and duplicate tests verify 189 total entries, newly represented states and unique named PI groups. Existing IDs remain intact. An independent reviewer confirmed all regional counts and availability totals and spot-checked research/location and recruitment sources; this was not a second exhaustive revalidation of every source.
+
+The economic-area selection is documented in [nationwide location methodology](research/nationwide-selection.md), using CBRE's 2025 comparative report and 2026 employment context plus official institutional and local development sources. No new economic score or claim of guaranteed funding, pay, affordability or neighborhood conditions is introduced.
+
+Discovery renders 24 cards initially and expands via an accessible Show more control. Regression tests verify expansion to 48, reset after filtering, the complete 29-entry Columbus subset and new California/San Francisco browsing. The represented-state list derives from the catalog using a complete U.S. name map. Existing state and slider tests now verify filter behavior without assuming the old small directory.
+
+The compiled production smoke verifies seven direct routes, including a new lab profile; the 189-match total, batch expansion, existing tracker movement and reload persistence, and phone rendering pass. The original private document remains ignored and the name/file-marker/email scan again finds zero source/build matches. The development preview returned HTTP 200.
+
+## Earlier Ohio/Chicago expansion verification
 
 Superpowers parallel research added 77 official-source entries across OSU Wexner/James, Nationwide Children's, Cleveland Clinic, Case Western Reserve, UChicago, Northwestern, Rush, Loyola and OhioHealth. Original stable IDs remain intact. Schema tests validate every record, uniqueness, research citations, contact citations and availability evidence for both open positions and inquiry routes. Research-only defaults preserve unknown deadlines, eligibility and vacancy status.
 

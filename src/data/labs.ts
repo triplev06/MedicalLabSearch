@@ -3,6 +3,9 @@ import { labSchema } from "../domain/schemas";
 import { columbusLabs } from "./catalog/columbus";
 import { clevelandOhioHealthLabs } from "./catalog/cleveland-ohiohealth";
 import { chicagoMidwestLabs } from "./catalog/chicago-midwest";
+import { nationalWestLabs } from "./catalog/national-west";
+import { nationalNortheastLabs } from "./catalog/national-northeast";
+import { nationalSouthLabs } from "./catalog/national-south";
 
 const md =
   "https://www.mdanderson.org/research/departments-labs-institutes/labs/";
@@ -533,6 +536,9 @@ const catalog: Lab[] = [
   ...columbusLabs,
   ...clevelandOhioHealthLabs,
   ...chicagoMidwestLabs,
+  ...nationalWestLabs,
+  ...nationalNortheastLabs,
+  ...nationalSouthLabs,
 ];
 
 // Preserve one display label per scientific field across separately researched modules.
